@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b376d">
+<meta name="description" content="CreateLK Ads - Digital advertising and website promotion platform.">
+<title>CreateLK Ads | Digital Advertising Platform</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,sans-serif;
+background:#f6f9ff;
+color:#172033;
+line-height:1.5
+}
+a{text-decoration:none;color:inherit}
+
+header{
+position:sticky;
+top:0;
+z-index:50;
+background:#0b376d;
+color:#fff;
+box-shadow:0 3px 15px #0003
+}
+.head{
+max-width:1100px;
+margin:auto;
+padding:10px 15px;
+display:flex;
+align-items:center;
+gap:20px
+}
+.logo{
+display:flex;
+align-items:center;
+gap:9px;
+margin-right:auto
+}
+.logo-box{
+width:40px;
+height:40px;
+border-radius:11px;
+background:#fff;
+color:#0b376d;
+display:grid;
+place-items:center;
+font-weight:900;
+font-size:12px
+}
+.logo h1{font-size:16px}
+.logo p{font-size:9px;opacity:.75}
+
+nav{
+display:flex;
+gap:4px
+}
+nav a{
+font-size:11px;
+padding:7px 9px;
+border-radius:7px
+}
+nav a:hover{background:#fff2}
+
+.header-btn{
+background:#fff;
+color:#0b376d;
+padding:8px 12px;
+border-radius:8px;
+font-size:11px;
+font-weight:bold
+}
+
+/* HERO */
+.hero{
+padding:75px 15px;
+text-align:center;
+color:#fff;
+background:
+radial-gradient(circle at 90% 10%,#f59e0b66,transparent 25%),
+radial-gradient(circle at 5% 90%,#38bdf855,transparent 25%),
+linear-gradient(135deg,#0b376d,#4c1d95)
+}
+.hero-box{
+max-width:800px;
+margin:auto
+}
+.badge{
+display:inline-block;
+padding:6px 13px;
+border:1px solid #fff4;
+background:#fff2;
+border-radius:30px;
+font-size:10px;
+margin-bottom:15px
+}
+.hero h2{
+font-size:42px;
+line-height:1.1;
+margin-bottom:15px
+}
+.hero p{
+max-width:650px;
+margin:auto;
+font-size:14px;
+opacity:.9
+}
+.buttons{
+margin-top:25px
+}
+.btn{
+display:inline-block;
+padding:11px 18px;
+border-radius:9px;
+font-size:12px;
+font-weight:bold;
+margin:3px
+}
+.primary{
+background:#fff;
+color:#0b376d
+}
+.secondary{
+border:1px solid #fff6;
+background:#fff1;
+color:#fff
+}
+
+/* GENERAL */
+.section{padding:50px 15px}
+.container{
+max-width:1050px;
+margin:auto
+}
+.title{
+text-align:center;
+font-size:25px;
+color:#0b376d;
+margin-bottom:8px
+}
+.title:after{
+content:"";
+display:block;
+width:40px;
+height:3px;
+margin:8px auto;
+background:linear-gradient(90deg,#2563eb,#f59e0b)
+}
+.sub{
+max-width:650px;
+margin:0 auto 25px;
+text-align:center;
+font-size:12px;
+color:#667085
+}
+
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+.card{
+background:#fff;
+padding:20px;
+border:1px solid #e4e8ef;
+border-radius:13px;
+box-shadow:0 4px 15px #00000008;
+border-top:4px solid #2563eb
+}
+.card:nth-child(2){border-top-color:#9333ea}
+.card:nth-child(3){border-top-color:#f59e0b}
+.icon{font-size:27px}
+.card h3{
+font-size:15px;
+color:#0b376d;
+margin:6px 0
+}
+.card p{
+font-size:11px;
+color:#667085
+}
+
+/* PACKAGES */
+.packages{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+.package{
+background:#fff;
+border:1px solid #e4e8ef;
+border-radius:14px;
+padding:22px;
+text-align:center;
+box-shadow:0 5px 18px #00000008
+}
+.package.featured{
+border:2px solid #2563eb;
+transform:translateY(-5px)
+}
+.package h3{
+font-size:15px;
+color:#0b376d
+}
+.price{
+font-size:27px;
+font-weight:bold;
+color:#4c1d95;
+margin:8px 0
+}
+.package p{
+font-size:11px;
+color:#667085
+}
+
+/* HOW */
+.steps{
+max-width:750px;
+margin:auto
+}
+.step{
+display:flex;
+gap:12px;
+background:#fff;
+padding:14px;
+margin-bottom:9px;
+border:1px solid #e4e8ef;
+border-radius:12px
+}
+.num{
+min-width:32px;
+height:32px;
+border-radius:9px;
+display:grid;
+place-items:center;
+background:linear-gradient(135deg,#2563eb,#9333ea);
+color:#fff;
+font-weight:bold;
+font-size:12px
+}
+.step h3{
+font-size:13px;
+color:#0b376d
+}
+.step p{
+font-size:11px;
+color:#667085
+}
+
+/* CTA */
+.cta{
+text-align:center;
+padding:40px 18px;
+border-radius:17px;
+color:#fff;
+background:linear-gradient(135deg,#0b376d,#6d28d9)
+}
+.cta h2{font-size:25px}
+.cta p{
+font-size:12px;
+opacity:.85;
+margin:6px 0 12px
+}
+
+/* FOOTER */
+footer{
+background:#061b3d;
+color:#fff;
+padding:30px 15px
+}
+.footer{
+max-width:1050px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:25px
+}
+footer h3{
+font-size:13px;
+margin-bottom:7px
+}
+footer p,footer a{
+display:block;
+font-size:10px;
+color:#cbd5e1;
+margin-bottom:5px
+}
+.copy{
+border-top:1px solid #fff2;
+margin-top:20px;
+padding-top:12px;
+text-align:center;
+font-size:9px;
+color:#94a3b8
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+right:15px;
+bottom:15px;
+z-index:100;
+background:#25d366;
+color:#fff;
+padding:11px 16px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold;
+box-shadow:0 5px 18px #0004
+}
+
+@media(max-width:800px){
+nav{display:none}
+.grid,.packages{
+grid-template-columns:1fr 1fr
+}
+}
+
+@media(max-width:550px){
+.hero{padding:58px 14px}
+.hero h2{font-size:30px}
+.section{padding:42px 13px}
+.grid,.packages,.footer{
+grid-template-columns:1fr
+}
+.package.featured{transform:none}
+.logo h1{font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="head">
+
+<a class="logo" href="index.html">
+<div class="logo-box">CLK</div>
+<div>
+<h1>CreateLK Ads</h1>
+<p>Digital Advertising Platform</p>
+</div>
+</a>
+
+<nav>
+<a href="#advertisers">Advertisers</a>
+<a href="#publishers">Publishers</a>
+<a href="#packages">Pricing</a>
+<a href="#how">How It Works</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<a href="#advertisers" class="header-btn">
+Advertise
+</a>
+
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-box">
+
+<span class="badge">Digital Advertising & Promotion</span>
+
+<h2>Reach More People.<br>Grow Your Business.</h2>
+
+<p>
+Create and promote your campaigns through CreateLK.
+Connect businesses, websites, creators and customers through
+simple digital advertising.
+</p>
+
+<div class="buttons">
+<a href="#advertisers" class="btn primary">
+Advertise With Us
+</a>
+
+<a href="#publishers" class="btn secondary">
+Become a Publisher
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- ADVERTISERS -->
+<section class="section" id="advertisers">
+<div class="container">
+
+<h2 class="title">For Advertisers</h2>
+
+<p class="sub">
+Promote your business, website, service, app or product
+to a wider online audience.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">📢</div>
+<h3>Create Campaigns</h3>
+<p>Create advertising campaigns designed around your goals.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎯</div>
+<h3>Reach Your Audience</h3>
+<p>Place your advertisements on approved CreateLK publisher websites.</p>
+</div>
+
+<div class="card">
+<div class="icon">📊</div>
+<h3>Track Results</h3>
+<p>Monitor campaign impressions, clicks and performance.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PUBLISHERS -->
+<section class="section" id="publishers">
+<div class="container">
+
+<h2 class="title">For Publishers</h2>
+
+<p class="sub">
+Monetize your website by displaying approved advertisements
+from CreateLK advertisers.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🌐</div>
+<h3>Add Your Website</h3>
+<p>Submit your website for publisher approval.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧩</div>
+<h3>Add Ad Zones</h3>
+<p>Place CreateLK advertising spaces on your website.</p>
+</div>
+
+<div class="card">
+<div class="icon">💰</div>
+<h3>Earn Revenue</h3>
+<p>Earn from eligible advertising activity on your approved website.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="packages">
+<div class="container">
+
+<h2 class="title">Advertising Packages</h2>
+
+<p class="sub">
+Simple packages for businesses and organizations.
+</p>
+
+<div class="packages">
+
+<div class="package">
+<h3>Starter</h3>
+<div class="price">LKR 500</div>
+<p>7-day advertising campaign.</p>
+<a href="#contact" class="btn primary">Get Started</a>
+</div>
+
+<div class="package featured">
+<h3>Business</h3>
+<div class="price">LKR 1,500</div>
+<p>30-day advertising campaign.</p>
+<a href="#contact" class="btn primary">Get Started</a>
+</div>
+
+<div class="package">
+<h3>Premium</h3>
+<div class="price">LKR 3,000</div>
+<p>Featured 30-day campaign.</p>
+<a href="#contact" class="btn primary">Get Started</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- HOW -->
+<section class="section" id="how">
+<div class="container">
+
+<h2 class="title">How It Works</h2>
+
+<div class="steps">
+
+<div class="step">
+<div class="num">1</div>
+<div>
+<h3>Create an Account</h3>
+<p>Register as an advertiser or publisher.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">2</div>
+<div>
+<h3>Create Your Campaign</h3>
+<p>Choose your advertising package and upload your advertisement.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">3</div>
+<div>
+<h3>Review & Approval</h3>
+<p>CreateLK reviews campaigns before publication.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">4</div>
+<div>
+<h3>Campaign Goes Live</h3>
+<p>Your approved advertisement is displayed on eligible publisher websites.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">5</div>
+<div>
+<h3>Track Performance</h3>
+<p>View impressions, clicks and campaign results.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="contact">
+<div class="container">
+
+<div class="cta">
+
+<h2>Ready to Grow?</h2>
+
+<p>
+Start advertising with CreateLK or join as a publisher.
+</p>
+
+<a href="mailto:createlk@gmail.com" class="btn primary">
+Contact CreateLK
+</a>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer">
+
+<div>
+<h3>CreateLK Ads</h3>
+<p>Digital advertising and website promotion platform.</p>
+<p>Connecting advertisers and publishers.</p>
+</div>
+
+<div>
+<h3>Platform</h3>
+<a href="#advertisers">Advertisers</a>
+<a href="#publishers">Publishers</a>
+<a href="#packages">Pricing</a>
+<a href="#how">How It Works</a>
+</div>
+
+<div>
+<h3>Legal</h3>
+<a href="terms.html">Terms of Use</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="contact.html">Contact</a>
+</div>
+
+</div>
+
+<div class="copy">
+© 2026 CreateLK · All Rights Reserved
+</div>
+
+</footer>
+
+<!-- WHATSAPP -->
+<a
+class="whatsapp"
+href="https://wa.me/94771190395"
+target="_blank"
+rel="noopener">
+☘ WhatsApp
+</a>
+
+</body>
+  </html>
