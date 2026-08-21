@@ -3,13 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>CreateLK Academy | Premium Membership</title>
-<meta name="description" content="CreateLK Academy Premium Membership">
+
+<meta name="description"
+content="CreateLK Academy Premium Membership - AI-powered English learning.">
+
 <meta name="theme-color" content="#155eef">
+
 <link rel="manifest" href="/manifest.json">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
 
 body{
 font-family:Arial,Helvetica,sans-serif;
@@ -18,7 +27,9 @@ color:#172033;
 line-height:1.5
 }
 
-a{text-decoration:none}
+a{
+text-decoration:none
+}
 
 header{
 height:64px;
@@ -389,6 +400,7 @@ max-width:65%
 <body>
 
 <header>
+
 <div class="nav">
 
 <a href="index.html" class="logo">
@@ -400,6 +412,7 @@ CreateLK Academy
 </a>
 
 </div>
+
 </header>
 
 
@@ -407,9 +420,13 @@ CreateLK Academy
 
 <section class="hero">
 
-<div class="hero-icon">⭐</div>
+<div class="hero-icon">
+⭐
+</div>
 
-<h1>Premium Membership</h1>
+<h1>
+Premium Membership
+</h1>
 
 <p>
 Unlock more AI English practice and continue your learning journey.
@@ -425,14 +442,32 @@ LKR 1,500
 <small>/ 30 Days</small>
 </div>
 
+
 <div class="features">
 
-<div class="feature">✓ 100 AI MCQs per day</div>
-<div class="feature">✓ Advanced AI practice</div>
-<div class="feature">✓ Grammar & Vocabulary</div>
-<div class="feature">✓ Progress Tracking</div>
-<div class="feature">✓ Certificate Eligibility</div>
-<div class="feature">✓ 30 Days Premium Access</div>
+<div class="feature">
+✓ 100 AI MCQs per day
+</div>
+
+<div class="feature">
+✓ Advanced AI practice
+</div>
+
+<div class="feature">
+✓ Grammar & Vocabulary
+</div>
+
+<div class="feature">
+✓ Progress Tracking
+</div>
+
+<div class="feature">
+✓ Certificate Eligibility
+</div>
+
+<div class="feature">
+✓ 30 Days Premium Access
+</div>
 
 </div>
 
@@ -444,13 +479,18 @@ Choose Payment Method
 
 <div class="payments">
 
+
 <!-- PAYHERE -->
 
 <div class="payment payhere">
 
-<div class="payment-icon">💳</div>
+<div class="payment-icon">
+💳
+</div>
 
-<h3>PayHere</h3>
+<h3>
+PayHere
+</h3>
 
 <p>
 Secure online payment.
@@ -460,7 +500,9 @@ Secure online payment.
 id="payhereBtn"
 class="btn payhere-btn"
 type="button">
+
 Pay LKR 1,500
+
 </button>
 
 </div>
@@ -470,9 +512,13 @@ Pay LKR 1,500
 
 <div class="payment">
 
-<div class="payment-icon">🏦</div>
+<div class="payment-icon">
+🏦
+</div>
 
-<h3>Bank Payment</h3>
+<h3>
+Bank Payment
+</h3>
 
 <p>
 Deposit and upload your payment slip.
@@ -482,7 +528,9 @@ Deposit and upload your payment slip.
 id="bankBtn"
 class="btn bank-btn"
 type="button">
+
 View Bank Details
+
 </button>
 
 </div>
@@ -498,13 +546,15 @@ class="message">
 </section>
 
 
-<!-- BANK DETAILS -->
+<!-- BANK PAYMENT -->
 
 <section
 id="bankSection"
 class="section">
 
-<h3>🏦 Bank Payment</h3>
+<h3>
+🏦 Bank Payment
+</h3>
 
 <p class="section-sub">
 Deposit <strong>LKR 1,500</strong> to the account below.
@@ -513,6 +563,7 @@ Then upload your deposit slip for verification.
 
 
 <div class="bank-box">
+
 
 <div class="bank-row">
 
@@ -568,7 +619,9 @@ Account No
 <button
 class="copy"
 onclick="copyText('292200280023178')">
+
 Copy
+
 </button>
 
 </span>
@@ -578,7 +631,7 @@ Copy
 </div>
 
 
-<!-- SLIP -->
+<!-- SLIP UPLOAD -->
 
 <div class="upload">
 
@@ -594,7 +647,7 @@ accept="image/*,.pdf">
 </div>
 
 
-<!-- REFERENCE -->
+<!-- TRANSACTION REFERENCE -->
 
 <div class="reference">
 
@@ -642,7 +695,9 @@ checks and approves your payment.
 
 <div class="status">
 
-<strong>Payment Status:</strong>
+<strong>
+Payment Status:
+</strong>
 
 <span id="paymentStatus">
 Checking...
@@ -654,21 +709,23 @@ Checking...
 
 
 <footer>
+
 © 2026 CreateLK Academy. All rights reserved.
+
 </footer>
 
 
 <script>
 
 /* =========================
-   CONFIGURATION
+   API CONFIG
 ========================= */
 
 const PAYHERE_WORKER =
-"https://createlk-payhere-checkout.createlk.workers.dev";
+"https://createlk-premium-payhere.createlk.workers.dev";
 
-const PAYMENT_API =
-"https://createlk-payment-api.createlk.workers.dev";
+const BANK_PAYMENT_API =
+"https://createlk-premium-bank.createlk.workers.dev";
 
 
 /* =========================
@@ -685,7 +742,7 @@ let student=null;
 
 try{
 
-student=
+student =
 studentRaw ?
 JSON.parse(studentRaw) :
 null;
@@ -763,14 +820,14 @@ alert(text);
 
 
 /* =========================
-   BANK DETAILS
+   BANK DETAILS TOGGLE
 ========================= */
 
 $("bankBtn").onclick=()=>{
 
 if(!requireLogin())return;
 
-const section=
+const section =
 $("bankSection");
 
 section.classList.toggle("show");
@@ -791,25 +848,28 @@ block:"start"
    PAYHERE
 ========================= */
 
-$("payhereBtn").onclick=
+$("payhereBtn").onclick =
 async()=>{
 
 if(!requireLogin())return;
 
-const btn=
+
+const btn =
 $("payhereBtn");
 
-const msg=
+const msg =
 $("payhereMessage");
+
 
 btn.disabled=true;
 
 btn.textContent=
 "Opening PayHere...";
 
+
 try{
 
-const response=
+const response =
 await fetch(
 PAYHERE_WORKER,
 {
@@ -850,7 +910,7 @@ let data=null;
 
 try{
 
-data=
+data =
 await response.json();
 
 }catch(e){
@@ -872,11 +932,11 @@ data?.error ||
 
 
 /*
-Accept different response
-names from your Worker.
+Supported checkout URL
+response names.
 */
 
-const checkoutUrl=
+const checkoutUrl =
 data?.checkout_url ||
 data?.checkoutUrl ||
 data?.payment_url ||
@@ -887,7 +947,7 @@ data?.redirect;
 
 if(checkoutUrl){
 
-location.href=
+location.href =
 checkoutUrl;
 
 return;
@@ -896,7 +956,7 @@ return;
 
 
 throw new Error(
-"PayHere checkout URL was not returned by the Worker."
+"PayHere checkout URL was not returned."
 );
 
 
@@ -925,22 +985,22 @@ btn.textContent=
    BANK PAYMENT
 ========================= */
 
-$("submitBank").onclick=
+$("submitBank").onclick =
 async()=>{
 
 if(!requireLogin())return;
 
 
-const file=
+const file =
 $("slip").files[0];
 
-const reference=
+const reference =
 $("reference").value.trim();
 
-const msg=
+const msg =
 $("bankMessage");
 
-const btn=
+const btn =
 $("submitBank");
 
 
@@ -979,28 +1039,33 @@ btn.textContent=
 
 try{
 
-const formData=
+const formData =
 new FormData();
+
 
 formData.append(
 "amount",
 "1500"
 );
 
+
 formData.append(
 "currency",
 "LKR"
 );
+
 
 formData.append(
 "payment_method",
 "bank"
 );
 
+
 formData.append(
 "reference",
 reference
 );
+
 
 formData.append(
 "slip",
@@ -1018,10 +1083,9 @@ student.id
 }
 
 
-const response=
+const response =
 await fetch(
-PAYMENT_API+
-"/api/subscribe",
+BANK_PAYMENT_API,
 {
 method:"POST",
 
@@ -1039,7 +1103,7 @@ let data=null;
 
 try{
 
-data=
+data =
 await response.json();
 
 }catch(e){
@@ -1078,11 +1142,11 @@ msg,
 );
 
 
-$("paymentStatus").textContent=
+$("paymentStatus").textContent =
 "Pending verification";
 
 
-btn.textContent=
+btn.textContent =
 "✓ Payment Submitted";
 
 
@@ -1104,7 +1168,7 @@ error.message ||
 
 btn.disabled=false;
 
-btn.textContent=
+btn.textContent =
 "📤 Submit Bank Payment";
 
 }
@@ -1120,7 +1184,7 @@ function updateStatus(){
 
 if(!student){
 
-$("paymentStatus").textContent=
+$("paymentStatus").textContent =
 "Login required";
 
 return;
@@ -1128,7 +1192,7 @@ return;
 }
 
 
-const status=
+const status =
 String(
 
 student.membership_status ||
@@ -1144,7 +1208,7 @@ status==="ACTIVE" ||
 status==="PREMIUM"
 ){
 
-$("paymentStatus").textContent=
+$("paymentStatus").textContent =
 "Premium Active";
 
 }
@@ -1153,14 +1217,14 @@ else if(
 status==="PENDING"
 ){
 
-$("paymentStatus").textContent=
+$("paymentStatus").textContent =
 "Pending verification";
 
 }
 
 else{
 
-$("paymentStatus").textContent=
+$("paymentStatus").textContent =
 "Not subscribed";
 
 }
