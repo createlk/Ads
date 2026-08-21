@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CreateLK Academy | Premium Membership</title>
-<meta name="description" content="Upgrade to CreateLK Academy Premium and unlock more AI English practice.">
+<meta name="description" content="CreateLK Academy Premium Membership">
 <meta name="theme-color" content="#155eef">
 <link rel="manifest" href="/manifest.json">
 
@@ -30,17 +30,17 @@ z-index:100
 }
 
 .nav{
-max-width:1100px;
+max-width:1000px;
 height:100%;
 margin:auto;
-padding:0 18px;
+padding:0 16px;
 display:flex;
 align-items:center;
 justify-content:space-between
 }
 
 .logo{
-font-size:19px;
+font-size:18px;
 font-weight:800;
 color:#155eef
 }
@@ -54,7 +54,7 @@ color:#155eef
 .main{
 max-width:900px;
 margin:auto;
-padding:35px 15px 60px
+padding:35px 15px 55px
 }
 
 .hero{
@@ -63,14 +63,14 @@ margin-bottom:25px
 }
 
 .hero-icon{
-width:65px;
-height:65px;
+width:62px;
+height:62px;
 margin:0 auto 12px;
 border-radius:18px;
 background:#eaf1ff;
 display:grid;
 place-items:center;
-font-size:31px
+font-size:30px
 }
 
 .hero h1{
@@ -87,14 +87,14 @@ color:#667085
 background:#fff;
 border:2px solid #155eef;
 border-radius:18px;
-padding:28px;
+padding:27px;
 box-shadow:0 12px 35px #155eef12;
-margin-bottom:20px
+margin-bottom:18px
 }
 
 .price{
 text-align:center;
-font-size:36px;
+font-size:35px;
 font-weight:900;
 color:#155eef
 }
@@ -108,35 +108,35 @@ color:#667085
 .features{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin:22px 0
+gap:9px;
+margin:20px 0
 }
 
 .feature{
 background:#f8faff;
 border:1px solid #e4e9f3;
 border-radius:10px;
-padding:11px;
+padding:10px;
 font-size:12px
 }
 
 .payment-title{
-font-size:18px;
+font-size:17px;
 font-weight:800;
-margin-bottom:14px
+margin:20px 0 12px
 }
 
 .payments{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:15px
+gap:14px
 }
 
 .payment{
 background:#fff;
 border:1px solid #dfe5ee;
-border-radius:15px;
-padding:22px;
+border-radius:14px;
+padding:20px;
 text-align:center
 }
 
@@ -145,32 +145,37 @@ border:2px solid #155eef
 }
 
 .payment-icon{
-font-size:28px;
-margin-bottom:7px
+font-size:27px;
+margin-bottom:6px
 }
 
 .payment h3{
 font-size:16px;
-margin-bottom:5px
+margin-bottom:4px
 }
 
 .payment p{
 font-size:11px;
 color:#667085;
-margin-bottom:15px
+margin-bottom:13px
 }
 
 .btn{
 width:100%;
-height:44px;
+height:43px;
 border:0;
 border-radius:9px;
-font-size:13px;
+font-size:12px;
 font-weight:800;
 cursor:pointer;
 display:flex;
 align-items:center;
 justify-content:center
+}
+
+.btn:disabled{
+opacity:.6;
+cursor:not-allowed
 }
 
 .payhere-btn{
@@ -189,8 +194,8 @@ display:none;
 background:#fff;
 border:1px solid #e1e6ee;
 border-radius:15px;
-padding:22px;
-margin-top:15px
+padding:20px;
+margin-top:14px
 }
 
 .section.show{
@@ -199,27 +204,28 @@ display:block
 
 .section h3{
 font-size:17px;
-margin-bottom:5px
+margin-bottom:4px
 }
 
 .section-sub{
 font-size:11px;
 color:#667085;
-margin-bottom:18px
+margin-bottom:16px
 }
 
 .bank-box{
 background:#f8faff;
 border:1px solid #e2e8f4;
 border-radius:12px;
-padding:15px
+padding:13px
 }
 
 .bank-row{
 display:flex;
 justify-content:space-between;
+align-items:center;
 gap:10px;
-padding:9px 0;
+padding:10px 0;
 border-bottom:1px solid #e5eaf2;
 font-size:12px
 }
@@ -229,7 +235,8 @@ border-bottom:0
 }
 
 .bank-label{
-color:#667085
+color:#667085;
+flex-shrink:0
 }
 
 .bank-value{
@@ -247,23 +254,24 @@ border-radius:6px;
 font-size:10px;
 font-weight:800;
 cursor:pointer;
-margin-left:5px
+margin-left:4px
 }
 
 .upload{
-margin-top:18px
+margin-top:17px
 }
 
-.upload label{
+.upload label,
+.reference label{
 display:block;
 font-size:12px;
 font-weight:800;
-margin-bottom:7px
+margin-bottom:6px
 }
 
 input[type=file]{
 width:100%;
-padding:11px;
+padding:10px;
 border:1px dashed #b8c2d3;
 border-radius:9px;
 background:#fafbfc;
@@ -276,10 +284,10 @@ margin-top:12px
 
 .reference input{
 width:100%;
-height:42px;
+height:41px;
 border:1px solid #d9dee8;
 border-radius:8px;
-padding:0 12px;
+padding:0 11px;
 font-size:12px;
 outline:none
 }
@@ -290,17 +298,17 @@ box-shadow:0 0 0 3px #155eef15
 }
 
 .submit{
-margin-top:15px;
+margin-top:14px;
 background:#155eef;
 color:#fff
 }
 
 .message{
 display:none;
-padding:11px;
-border-radius:9px;
-font-size:12px;
-margin-top:15px;
+padding:10px;
+border-radius:8px;
+font-size:11px;
+margin-top:13px;
 text-align:center
 }
 
@@ -324,19 +332,20 @@ border:1px solid #fecdca
 background:#fffaeb;
 border:1px solid #fedf89;
 color:#93370d;
-padding:12px;
+padding:11px;
 border-radius:9px;
 font-size:11px;
-margin-top:15px
+margin-top:13px
 }
 
 .status{
-background:#f8faff;
-border:1px solid #e2e8f4;
+background:#fff;
+border:1px solid #e1e6ee;
 border-radius:12px;
-padding:15px;
+padding:13px;
 font-size:12px;
-margin-top:20px
+margin-top:15px;
+text-align:center
 }
 
 .status strong{
@@ -358,11 +367,19 @@ grid-template-columns:1fr
 }
 
 .price-card{
-padding:22px 16px
+padding:22px 15px
 }
 
 .hero h1{
 font-size:25px
+}
+
+.bank-row{
+align-items:flex-start
+}
+
+.bank-value{
+max-width:65%
 }
 
 }
@@ -419,11 +436,15 @@ LKR 1,500
 
 </div>
 
+
 <div class="payment-title">
 Choose Payment Method
 </div>
 
+
 <div class="payments">
+
+<!-- PAYHERE -->
 
 <div class="payment payhere">
 
@@ -432,7 +453,7 @@ Choose Payment Method
 <h3>PayHere</h3>
 
 <p>
-Secure online payment with PayHere.
+Secure online payment.
 </p>
 
 <button
@@ -445,6 +466,8 @@ Pay LKR 1,500
 </div>
 
 
+<!-- BANK -->
+
 <div class="payment">
 
 <div class="payment-icon">🏦</div>
@@ -452,14 +475,14 @@ Pay LKR 1,500
 <h3>Bank Payment</h3>
 
 <p>
-Make a bank deposit and upload your slip.
+Deposit and upload your payment slip.
 </p>
 
 <button
 id="bankBtn"
 class="btn bank-btn"
 type="button">
-View Bank Payment
+View Bank Details
 </button>
 
 </div>
@@ -467,54 +490,95 @@ View Bank Payment
 </div>
 
 
-<div id="payhereMessage" class="message"></div>
+<div
+id="payhereMessage"
+class="message">
+</div>
 
 </section>
 
 
-<!-- BANK PAYMENT -->
+<!-- BANK DETAILS -->
 
-<section id="bankSection" class="section">
+<section
+id="bankSection"
+class="section">
 
 <h3>🏦 Bank Payment</h3>
 
 <p class="section-sub">
-Deposit LKR 1,500 to the account below, then upload your payment slip.
+Deposit <strong>LKR 1,500</strong> to the account below.
+Then upload your deposit slip for verification.
 </p>
+
 
 <div class="bank-box">
 
 <div class="bank-row">
-<span class="bank-label">Bank</span>
-<span class="bank-value">YOUR BANK</span>
-</div>
 
-<div class="bank-row">
-<span class="bank-label">Account Name</span>
-<span class="bank-value">CreateLK Academy</span>
-</div>
-
-<div class="bank-row">
-<span class="bank-label">Account Number</span>
+<span class="bank-label">
+Bank
+</span>
 
 <span class="bank-value">
-<span id="accountNumber">0000000000</span>
-<button
-class="copy"
-onclick="copyText('0000000000')">
-Copy
-</button>
+People's Bank
 </span>
 
 </div>
 
+
 <div class="bank-row">
-<span class="bank-label">Branch</span>
-<span class="bank-value">YOUR BRANCH</span>
-</div>
+
+<span class="bank-label">
+Branch
+</span>
+
+<span class="bank-value">
+Udapussellawa
+</span>
 
 </div>
 
+
+<div class="bank-row">
+
+<span class="bank-label">
+Account Name
+</span>
+
+<span class="bank-value">
+Thinarathnam Saththiyanadan
+</span>
+
+</div>
+
+
+<div class="bank-row">
+
+<span class="bank-label">
+Account No
+</span>
+
+<span class="bank-value">
+
+<span id="accountNumber">
+292200280023178
+</span>
+
+<button
+class="copy"
+onclick="copyText('292200280023178')">
+Copy
+</button>
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- SLIP -->
 
 <div class="upload">
 
@@ -530,6 +594,8 @@ accept="image/*,.pdf">
 </div>
 
 
+<!-- REFERENCE -->
+
 <div class="reference">
 
 <label for="reference">
@@ -540,6 +606,7 @@ Bank Transaction / Reference Number
 id="reference"
 type="text"
 placeholder="Enter transaction reference">
+
 </div>
 
 
@@ -547,22 +614,39 @@ placeholder="Enter transaction reference">
 id="submitBank"
 class="btn submit"
 type="button">
-📤 Submit Payment
+
+📤 Submit Bank Payment
+
 </button>
 
-<div id="bankMessage" class="message"></div>
+
+<div
+id="bankMessage"
+class="message">
+</div>
+
 
 <div class="note">
-Your Premium membership will remain pending until the payment is checked and approved by the administrator.
+
+<strong>Important:</strong>
+Your Premium membership will remain
+<strong>Pending</strong> until the administrator
+checks and approves your payment.
+
 </div>
 
 </section>
 
 
+<!-- STATUS -->
+
 <div class="status">
 
 <strong>Payment Status:</strong>
-<span id="paymentStatus">Checking...</span>
+
+<span id="paymentStatus">
+Checking...
+</span>
 
 </div>
 
@@ -577,7 +661,7 @@ Your Premium membership will remain pending until the payment is checked and app
 <script>
 
 /* =========================
-   SETTINGS
+   CONFIGURATION
 ========================= */
 
 const PAYHERE_WORKER =
@@ -586,17 +670,22 @@ const PAYHERE_WORKER =
 const PAYMENT_API =
 "https://createlk-payment-api.createlk.workers.dev";
 
+
+/* =========================
+   SESSION
+========================= */
+
 const token =
 sessionStorage.getItem("createlk_token");
 
 const studentRaw =
 sessionStorage.getItem("createlk_student");
 
-let student = null;
+let student=null;
 
 try{
 
-student =
+student=
 studentRaw ?
 JSON.parse(studentRaw) :
 null;
@@ -612,22 +701,15 @@ student=null;
    HELPERS
 ========================= */
 
-const $=id=>
-document.getElementById(id);
+const $ =
+id => document.getElementById(id);
 
-function message(el,text,type){
-
-el.textContent=text;
-el.className="message show "+type;
-
-}
 
 function requireLogin(){
 
 if(!token){
 
-location.href=
-"login.html";
+location.href="login.html";
 
 return false;
 
@@ -638,8 +720,50 @@ return true;
 }
 
 
+function showMessage(
+element,
+text,
+type
+){
+
+element.textContent=text;
+
+element.className=
+"message show "+type;
+
+}
+
+
+function copyText(text){
+
+if(
+navigator.clipboard &&
+navigator.clipboard.writeText
+){
+
+navigator.clipboard.writeText(text)
+.then(()=>{
+
+alert("Account number copied.");
+
+})
+.catch(()=>{
+
+alert(text);
+
+});
+
+}else{
+
+alert(text);
+
+}
+
+}
+
+
 /* =========================
-   BANK SECTION
+   BANK DETAILS
 ========================= */
 
 $("bankBtn").onclick=()=>{
@@ -664,31 +788,11 @@ block:"start"
 
 
 /* =========================
-   COPY
-========================= */
-
-async function copyText(text){
-
-try{
-
-await navigator.clipboard.writeText(text);
-
-alert("Copied: "+text);
-
-}catch(e){
-
-alert(text);
-
-}
-
-}
-
-
-/* =========================
    PAYHERE
 ========================= */
 
-$("payhereBtn").onclick=async()=>{
+$("payhereBtn").onclick=
+async()=>{
 
 if(!requireLogin())return;
 
@@ -699,28 +803,26 @@ const msg=
 $("payhereMessage");
 
 btn.disabled=true;
-btn.textContent="Opening PayHere...";
+
+btn.textContent=
+"Opening PayHere...";
 
 try{
-
-/*
-The Worker should create the
-PayHere checkout/session securely.
-
-The student token is sent to
-the Worker so the payment can
-be connected to the correct account.
-*/
 
 const response=
 await fetch(
 PAYHERE_WORKER,
 {
 method:"POST",
+
 headers:{
-"Content-Type":"application/json",
-"Authorization":"Bearer "+token
+"Content-Type":
+"application/json",
+
+"Authorization":
+"Bearer "+token
 },
+
 body:JSON.stringify({
 
 student_id:
@@ -743,8 +845,20 @@ description:
 }
 );
 
-const data=
+
+let data=null;
+
+try{
+
+data=
 await response.json();
+
+}catch(e){
+
+data=null;
+
+}
+
 
 if(!response.ok){
 
@@ -758,47 +872,39 @@ data?.error ||
 
 
 /*
-Accept several possible response
-formats from the checkout Worker.
+Accept different response
+names from your Worker.
 */
 
 const checkoutUrl=
-data.checkout_url ||
-data.checkoutUrl ||
-data.url ||
-data.payment_url;
+data?.checkout_url ||
+data?.checkoutUrl ||
+data?.payment_url ||
+data?.paymentUrl ||
+data?.url ||
+data?.redirect;
+
 
 if(checkoutUrl){
 
-location.href=checkoutUrl;
+location.href=
+checkoutUrl;
 
 return;
 
 }
 
-
-/*
-Some PayHere Workers may return
-a payment form instead of a URL.
-*/
-
-if(data.redirect){
-
-location.href=data.redirect;
-
-return;
-
-}
 
 throw new Error(
-"PayHere checkout URL was not returned."
+"PayHere checkout URL was not returned by the Worker."
 );
+
 
 }catch(error){
 
 console.error(error);
 
-message(
+showMessage(
 msg,
 error.message ||
 "Unable to connect to PayHere.",
@@ -806,7 +912,9 @@ error.message ||
 );
 
 btn.disabled=false;
-btn.textContent="Pay LKR 1,500";
+
+btn.textContent=
+"Pay LKR 1,500";
 
 }
 
@@ -814,12 +922,14 @@ btn.textContent="Pay LKR 1,500";
 
 
 /* =========================
-   BANK PAYMENT SUBMISSION
+   BANK PAYMENT
 ========================= */
 
-$("submitBank").onclick=async()=>{
+$("submitBank").onclick=
+async()=>{
 
 if(!requireLogin())return;
+
 
 const file=
 $("slip").files[0];
@@ -830,9 +940,13 @@ $("reference").value.trim();
 const msg=
 $("bankMessage");
 
+const btn=
+$("submitBank");
+
+
 if(!file){
 
-message(
+showMessage(
 msg,
 "Please select your bank deposit slip.",
 "error"
@@ -842,9 +956,11 @@ return;
 
 }
 
-if(file.size>8*1024*1024){
 
-message(
+if(file.size >
+8*1024*1024){
+
+showMessage(
 msg,
 "Please upload a file smaller than 8 MB.",
 "error"
@@ -854,21 +970,14 @@ return;
 
 }
 
-const btn=
-$("submitBank");
 
 btn.disabled=true;
-btn.textContent="Submitting...";
+
+btn.textContent=
+"Submitting...";
+
 
 try{
-
-/*
-The payment API should handle:
-1. Authentication
-2. Payment record
-3. Slip upload
-4. Admin verification
-*/
 
 const formData=
 new FormData();
@@ -898,6 +1007,7 @@ formData.append(
 file
 );
 
+
 if(student?.id){
 
 formData.append(
@@ -907,26 +1017,37 @@ student.id
 
 }
 
+
 const response=
 await fetch(
-PAYMENT_API+"/api/subscribe",
+PAYMENT_API+
+"/api/subscribe",
 {
 method:"POST",
+
 headers:{
 "Authorization":
 "Bearer "+token
 },
+
 body:formData
 }
 );
+
 
 let data=null;
 
 try{
 
-data=await response.json();
+data=
+await response.json();
 
-}catch(e){}
+}catch(e){
+
+data=null;
+
+}
+
 
 if(!response.ok){
 
@@ -938,6 +1059,7 @@ data?.error ||
 
 }
 
+
 if(data?.success===false){
 
 throw new Error(
@@ -948,26 +1070,32 @@ data.error ||
 
 }
 
-message(
+
+showMessage(
 msg,
 "Payment submitted successfully. Your Premium membership is now pending verification.",
 "success"
 );
 
+
 $("paymentStatus").textContent=
 "Pending verification";
+
 
 btn.textContent=
 "✓ Payment Submitted";
 
+
 $("slip").value="";
+
 $("reference").value="";
+
 
 }catch(error){
 
 console.error(error);
 
-message(
+showMessage(
 msg,
 error.message ||
 "Unable to submit payment.",
@@ -975,8 +1103,9 @@ error.message ||
 );
 
 btn.disabled=false;
+
 btn.textContent=
-"📤 Submit Payment";
+"📤 Submit Bank Payment";
 
 }
 
@@ -998,25 +1127,38 @@ return;
 
 }
 
+
 const status=
 String(
+
 student.membership_status ||
 student.membershipStatus ||
 student.status ||
 "NONE"
+
 ).toUpperCase();
 
-if(status==="ACTIVE" || status==="PREMIUM"){
+
+if(
+status==="ACTIVE" ||
+status==="PREMIUM"
+){
 
 $("paymentStatus").textContent=
 "Premium Active";
 
-}else if(status==="PENDING"){
+}
+
+else if(
+status==="PENDING"
+){
 
 $("paymentStatus").textContent=
 "Pending verification";
 
-}else{
+}
+
+else{
 
 $("paymentStatus").textContent=
 "Not subscribed";
@@ -1024,6 +1166,7 @@ $("paymentStatus").textContent=
 }
 
 }
+
 
 updateStatus();
 
