@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>CreateLK AL | Biology MCQ Practice</title>
+<meta name="theme-color" content="#155eef">
+<link rel="manifest" href="/manifest.json">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+
+button,select{font-family:inherit}
+
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav{
+  max-width:900px;
+  height:62px;
+  margin:auto;
+  padding:0 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#155eef;
+  font-weight:900;
+  font-size:18px;
+}
+
+.back{
+  color:#667085;
+  font-size:11px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:25px 15px 50px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e7efff;
+  color:#155eef;
+  border-radius:20px;
+  padding:6px 11px;
+  font-size:10px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+h1{
+  font-size:27px;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  color:#667085;
+  font-size:12px;
+  margin-bottom:22px;
+}
+
+/* CONTROLS */
+
+.controls{
+  background:#fff;
+  border:1px solid #e1e6ef;
+  border-radius:15px;
+  padding:16px;
+  display:grid;
+  grid-template-columns:1fr 1fr auto;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.field label{
+  display:block;
+  font-size:10px;
+  font-weight:800;
+  color:#667085;
+  margin-bottom:5px;
+}
+
+select{
+  width:100%;
+  height:40px;
+  border:1px solid #d7dce5;
+  border-radius:8px;
+  padding:0 9px;
+  background:#fff;
+  color:#172033;
+  font-size:11px;
+}
+
+.start-btn{
+  align-self:end;
+  height:40px;
+  border:0;
+  border-radius:8px;
+  background:#155eef;
+  color:#fff;
+  padding:0 16px;
+  font-size:11px;
+  font-weight:900;
+}
+
+/* QUESTION */
+
+.question-card{
+  background:#fff;
+  border:1px solid #e1e6ef;
+  border-radius:17px;
+  padding:22px;
+  display:none;
+}
+
+.question-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.topic{
+  color:#155eef;
+  background:#eef4ff;
+  border-radius:20px;
+  padding:5px 9px;
+  font-size:9px;
+  font-weight:900;
+}
+
+.level{
+  color:#667085;
+  background:#f2f4f7;
+  border-radius:20px;
+  padding:5px 9px;
+  font-size:9px;
+  font-weight:800;
+}
+
+.question{
+  font-size:17px;
+  line-height:1.55;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.options{
+  display:grid;
+  gap:9px;
+}
+
+.option{
+  width:100%;
+  border:1px solid #dce2eb;
+  background:#fff;
+  border-radius:10px;
+  padding:13px;
+  text-align:left;
+  font-size:12px;
+  color:#172033;
+  transition:.15s;
+}
+
+.option:hover{
+  border-color:#155eef;
+  background:#f8faff;
+}
+
+.option:disabled{
+  cursor:default;
+}
+
+.option.correct{
+  background:#ecfdf3;
+  border-color:#12b76a;
+  color:#087443;
+}
+
+.option.wrong{
+  background:#fef3f2;
+  border-color:#f04438;
+  color:#b42318;
+}
+
+/* RESULT */
+
+.result{
+  display:none;
+  margin-top:18px;
+  padding:15px;
+  border-radius:11px;
+  background:#f8faff;
+  border:1px solid #dce5f3;
+}
+
+.result-title{
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:5px;
+}
+
+.explanation{
+  color:#667085;
+  font-size:11px;
+  line-height:1.6;
+}
+
+/* NEXT */
+
+.next{
+  display:none;
+  margin-top:16px;
+  width:100%;
+  height:42px;
+  border:0;
+  border-radius:9px;
+  background:#155eef;
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+}
+
+/* EMPTY */
+
+.message{
+  background:#fff;
+  border:1px solid #e1e6ef;
+  border-radius:15px;
+  padding:30px 18px;
+  text-align:center;
+  color:#667085;
+  font-size:12px;
+}
+
+.loader{
+  width:24px;
+  height:24px;
+  border:3px solid #e4e9f1;
+  border-top-color:#155eef;
+  border-radius:50%;
+  margin:0 auto 10px;
+  animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.progress-wrap{
+  margin-bottom:15px;
+  display:none;
+}
+
+.progress-line{
+  height:7px;
+  background:#e9edf3;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  width:0;
+  height:100%;
+  background:#155eef;
+  transition:.3s;
+}
+
+.progress-info{
+  display:flex;
+  justify-content:space-between;
+  margin-top:5px;
+  color:#667085;
+  font-size:9px;
+}
+
+@media(max-width:650px){
+
+  .container{
+    padding:22px 13px 45px;
+  }
+
+  h1{
+    font-size:25px;
+  }
+
+  .controls{
+    grid-template-columns:1fr;
+  }
+
+  .start-btn{
+    width:100%;
+  }
+
+  .question-card{
+    padding:17px;
+  }
+
+  .question{
+    font-size:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a href="dashboard.html" class="logo">
+      CreateLK AL
+    </a>
+
+    <a href="dashboard.html" class="back">
+      ← Dashboard
+    </a>
+
+  </div>
+</header>
+
+
+<main class="container">
+
+  <div class="badge">
+    🧬 G.C.E. A/L BIOLOGY
+  </div>
+
+  <h1>Biology MCQ Practice</h1>
+
+  <p class="subtitle">
+    Practise A/L Biology questions by topic and difficulty.
+  </p>
+
+
+  <!-- CONTROLS -->
+
+  <div class="controls">
+
+    <div class="field">
+
+      <label>TOPIC</label>
+
+      <select id="topic">
+
+        <option value="Cell Biology">
+          Cell Biology
+        </option>
+
+        <option value="Biological Molecules">
+          Biological Molecules
+        </option>
+
+        <option value="Enzymes">
+          Enzymes
+        </option>
+
+        <option value="Genetics">
+          Genetics
+        </option>
+
+        <option value="Evolution">
+          Evolution
+        </option>
+
+        <option value="Ecology">
+          Ecology
+        </option>
+
+        <option value="Plant Biology">
+          Plant Biology
+        </option>
+
+        <option value="Animal Biology">
+          Animal Biology
+        </option>
+
+        <option value="Human Biology">
+          Human Biology
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>DIFFICULTY</label>
+
+      <select id="level">
+
+        <option value="EASY">
+          Easy
+        </option>
+
+        <option value="MEDIUM" selected>
+          Medium
+        </option>
+
+        <option value="HARD">
+          Hard
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <button
+      class="start-btn"
+      onclick="loadQuestion()">
+
+      Generate MCQ
+
+    </button>
+
+  </div>
+
+
+  <!-- PROGRESS -->
+
+  <div
+    class="progress-wrap"
+    id="progressWrap">
+
+    <div class="progress-line">
+
+      <div
+        class="progress-bar"
+        id="progressBar">
+      </div>
+
+    </div>
+
+    <div class="progress-info">
+
+      <span id="questionNumber">
+        Question 1
+      </span>
+
+      <span id="scoreInfo">
+        Score: 0
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- MESSAGE -->
+
+  <div
+    class="message"
+    id="message">
+
+    Select a topic and difficulty,
+    then tap <b>Generate MCQ</b>.
+
+  </div>
+
+
+  <!-- QUESTION -->
+
+  <div
+    class="question-card"
+    id="questionCard">
+
+    <div class="question-top">
+
+      <span
+        class="topic"
+        id="questionTopic">
+        Biology
+      </span>
+
+      <span
+        class="level"
+        id="questionLevel">
+        MEDIUM
+      </span>
+
+    </div>
+
+
+    <div
+      class="question"
+      id="questionText">
+    </div>
+
+
+    <div
+      class="options"
+      id="options">
+    </div>
+
+
+    <div
+      class="result"
+      id="result">
+
+      <div
+        class="result-title"
+        id="resultTitle">
+      </div>
+
+      <div
+        class="explanation"
+        id="explanation">
+      </div>
+
+    </div>
+
+
+    <button
+      class="next"
+      id="nextBtn"
+      onclick="loadQuestion()">
+
+      Next Biology Question →
+
+    </button>
+
+  </div>
+
+</main>
+
+
+<script>
+
+const API =
+"https://cl-al-mcq.createlk.workers.dev/";
+
+let currentAnswer = "";
+let answered = false;
+let questionNumber = 0;
+let score = 0;
+
+
+/* =========================
+   LOAD QUESTION
+========================= */
+
+async function loadQuestion(){
+
+  const topic =
+    document.getElementById("topic").value;
+
+  const level =
+    document.getElementById("level").value;
+
+  const message =
+    document.getElementById("message");
+
+  const card =
+    document.getElementById("questionCard");
+
+  const progress =
+    document.getElementById("progressWrap");
+
+  const options =
+    document.getElementById("options");
+
+  const result =
+    document.getElementById("result");
+
+  const next =
+    document.getElementById("nextBtn");
+
+  message.style.display="block";
+
+  message.innerHTML =
+    '<div class="loader"></div>Generating Biology MCQ...';
+
+  card.style.display="none";
+  progress.style.display="none";
+
+  result.style.display="none";
+  next.style.display="none";
+
+  answered=false;
+
+  try{
+
+    const response =
+      await fetch(API,{
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+          subject:"BIO",
+          topic:topic,
+          level:level
+
+        })
+
+      });
+
+
+    const data =
+      await response.json();
+
+
+    if(!response.ok || !data.success){
+
+      throw new Error(
+        data.error ||
+        "Unable to generate question"
+      );
+
+    }
+
+
+    currentAnswer =
+      String(data.answer)
+      .trim()
+      .toUpperCase();
+
+
+    questionNumber++;
+
+    document.getElementById(
+      "questionNumber"
+    ).textContent =
+      "Question " + questionNumber;
+
+    document.getElementById(
+      "scoreInfo"
+    ).textContent =
+      "Score: " + score;
+
+
+    document.getElementById(
+      "questionTopic"
+    ).textContent =
+      data.topic || topic;
+
+
+    document.getElementById(
+      "questionLevel"
+    ).textContent =
+      data.level || level;
+
+
+    document.getElementById(
+      "questionText"
+    ).textContent =
+      data.question;
+
+
+    options.innerHTML="";
+
+
+    const choices =
+      data.options || {
+
+        A:data.a,
+        B:data.b,
+        C:data.c,
+        D:data.d
+
+      };
+
+
+    ["A","B","C","D"].forEach(letter=>{
+
+      const button =
+        document.createElement("button");
+
+      button.className="option";
+
+      button.innerHTML =
+        "<b>"+letter+".</b> " +
+        escapeHtml(
+          choices[letter] || ""
+        );
+
+      button.onclick =
+        ()=>checkAnswer(
+          letter,
+          button,
+          choices
+        );
+
+      options.appendChild(button);
+
+    });
+
+
+    message.style.display="none";
+
+    card.style.display="block";
+
+    progress.style.display="block";
+
+    document.getElementById(
+      "progressBar"
+    ).style.width =
+      "100%";
+
+
+  }catch(error){
+
+    message.style.display="block";
+
+    message.innerHTML =
+      "❌ " +
+      escapeHtml(
+        error.message ||
+        "Something went wrong."
+      );
+
+  }
+
+}
+
+
+/* =========================
+   CHECK ANSWER
+========================= */
+
+function checkAnswer(
+  selected,
+  selectedButton,
+  choices
+){
+
+  if(answered) return;
+
+  answered=true;
+
+
+  const all =
+    document.querySelectorAll(
+      ".option"
+    );
+
+  all.forEach(button=>{
+    button.disabled=true;
+  });
+
+
+  if(selected === currentAnswer){
+
+    selectedButton.classList.add(
+      "correct"
+    );
+
+    score++;
+
+    document.getElementById(
+      "resultTitle"
+    ).textContent =
+      "✅ Correct!";
+
+  }else{
+
+    selectedButton.classList.add(
+      "wrong"
+    );
+
+    all.forEach(button=>{
+
+      const letter =
+        button.textContent
+        .trim()
+        .charAt(0);
+
+      if(letter === currentAnswer){
+
+        button.classList.add(
+          "correct"
+        );
+
+      }
+
+    });
+
+    document.getElementById(
+      "resultTitle"
+    ).textContent =
+      "❌ Incorrect";
+
+  }
+
+
+  document.getElementById(
+    "scoreInfo"
+  ).textContent =
+    "Score: " + score;
+
+
+  document.getElementById(
+    "explanation"
+  ).textContent =
+    window.currentExplanation ||
+    "Review the correct answer and continue practising.";
+
+
+  document.getElementById(
+    "result"
+  ).style.display="block";
+
+
+  document.getElementById(
+    "nextBtn"
+  ).style.display="block";
+
+
+  saveProgress(
+    selected === currentAnswer
+  );
+
+}
+
+
+/* =========================
+   SAVE LOCAL PROGRESS
+========================= */
+
+function saveProgress(correct){
+
+  let total =
+    Number(
+      localStorage.getItem(
+        "biology_questions"
+      ) || 0
+    );
+
+  let correctTotal =
+    Number(
+      localStorage.getItem(
+        "biology_correct"
+      ) || 0
+    );
+
+  total++;
+
+  if(correct){
+    correctTotal++;
+  }
+
+  localStorage.setItem(
+    "biology_questions",
+    total
+  );
+
+  localStorage.setItem(
+    "biology_correct",
+    correctTotal
+  );
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if(
+  "serviceWorker" in navigator
+){
+
+  window.addEventListener(
+    "load",
+    ()=>{
+
+      navigator.serviceWorker
+        .register("/sw.js")
+        .catch(
+          error =>
+          console.log(
+            "SW:",
+            error
+          )
+        );
+
+    }
+  );
+
+}
+
+</script>
+
+</body>
+</html>
