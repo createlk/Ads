@@ -1,26 +1,22 @@
 {
-  "name": "CreateLK AL",
+  "name": "CreateLK AL | A/L Biology",
   "short_name": "CreateLK AL",
-  "description": "G.C.E. A/L Biology MCQ practice, AI learning and exam preparation.",
+  "description": "A/L Biology MCQ practice for Sri Lankan students.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f7f9fc",
   "theme_color": "#155eef",
-  "lang": "en-LK",
-  "categories": [
-    "education"
-  ],
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "https://assetsal.createlk.com/file_00000000697c82089443a75ed817e2a6.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "https://assetsal.createlk.com/file_00000000697c82089443a75ed817e2a6.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
