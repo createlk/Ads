@@ -82,11 +82,13 @@ align-items:center;
 gap:6px
 }
 
+/* ALL THREE BUTTONS SAME SIZE */
+
 .nav-btn,
 .install-btn{
 height:36px;
-min-width:78px;
-padding:0 12px;
+width:82px;
+padding:0;
 border:0;
 border-radius:8px;
 font-size:10px;
@@ -365,29 +367,29 @@ margin-bottom:18px
 
 .language-options{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-max-width:500px;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+max-width:600px;
 margin:0 auto 18px
 }
 
 .lang-card{
-min-height:65px;
+min-height:62px;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:8px;
+gap:7px;
 border:1px solid #dbe3ef;
 background:#fff;
 border-radius:12px;
-padding:12px;
-font-size:12px;
+padding:12px 8px;
+font-size:11px;
 font-weight:900;
 color:#344054
 }
 
 .lang-card strong{
-font-size:22px
+font-size:21px
 }
 
 .lang-card.active{
@@ -718,11 +720,13 @@ font-size:15px
 gap:4px
 }
 
+/* STILL SAME SIZE */
+
 .nav-btn,
 .install-btn{
 height:34px;
-min-width:0;
-padding:0 8px;
+width:70px;
+padding:0;
 font-size:8.5px
 }
 
@@ -799,11 +803,12 @@ padding:22px 13px
 }
 
 .language-options{
+grid-template-columns:1fr;
 gap:7px
 }
 
 .lang-card{
-min-height:58px;
+min-height:56px;
 font-size:10px
 }
 
@@ -833,9 +838,14 @@ padding:42px 15px
 font-size:14px
 }
 
+.nav-right{
+gap:3px
+}
+
 .nav-btn,
 .install-btn{
-padding:0 6px;
+width:65px;
+height:33px;
 font-size:8px
 }
 
@@ -852,6 +862,8 @@ gap:6px
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -959,7 +971,9 @@ View Premium
 <div class="highlights">
 
 <span>🎯 10 Daily Questions</span>
+
 <span>🧬 500+ MCQs</span>
+
 <span>🌐 3 Languages</span>
 
 </div>
@@ -973,7 +987,7 @@ View Premium
 </section>
 
 
-<!-- WHY -->
+<!-- WHY CREATELK -->
 
 <section class="why">
 
@@ -995,7 +1009,9 @@ A simple platform built for better Biology preparation.
 
 <div class="why-card">
 
-<div class="icon">🧬</div>
+<div class="icon">
+🧬
+</div>
 
 <h3>
 A/L Biology Focused
@@ -1009,7 +1025,9 @@ Questions designed specifically around Biology preparation.
 
 <div class="why-card">
 
-<div class="icon">🎯</div>
+<div class="icon">
+🎯
+</div>
 
 <h3>
 Daily Practice
@@ -1023,7 +1041,9 @@ Build a consistent 10-question learning habit.
 
 <div class="why-card">
 
-<div class="icon">📈</div>
+<div class="icon">
+📈
+</div>
 
 <h3>
 Track Your Progress
@@ -1064,9 +1084,13 @@ Small daily practice. Stronger preparation.
 
 <div class="stat">
 
-<div class="icon">🎯</div>
+<div class="icon">
+🎯
+</div>
 
-<div class="number">10</div>
+<div class="number">
+10
+</div>
 
 <h3>
 Questions / Day
@@ -1080,9 +1104,13 @@ Build a daily practice habit.
 
 <div class="stat">
 
-<div class="icon">🧬</div>
+<div class="icon">
+🧬
+</div>
 
-<div class="number">500+</div>
+<div class="number">
+500+
+</div>
 
 <h3>
 Biology MCQs
@@ -1096,9 +1124,13 @@ Practise across Biology topics.
 
 <div class="stat">
 
-<div class="icon">📈</div>
+<div class="icon">
+📈
+</div>
 
-<div class="number">24/7</div>
+<div class="number">
+24/7
+</div>
 
 <h3>
 Learning Access
@@ -1126,11 +1158,11 @@ Practise whenever you are ready.
 <div class="title">
 
 <h2>
-Learn in Your Language
+AI Biology MCQ Practice
 </h2>
 
 <p>
-Choose your preferred language for AI Biology MCQ practice.
+Choose your preferred language and start practising.
 </p>
 
 </div>
@@ -1146,30 +1178,24 @@ Three-Language Learning
 </h3>
 
 <p>
-AI Biology MCQs can be provided in English, Sinhala and Tamil.
+AI Biology MCQs are available in English, Sinhala and Tamil.
 </p>
 
 <div class="language-options">
 
 <div class="lang-card active">
-
 <strong>🇬🇧</strong>
 English
-
 </div>
 
 <div class="lang-card">
-
 <strong>🇱🇰</strong>
 සිංහල
-
 </div>
 
 <div class="lang-card">
-
 <strong>🇱🇰</strong>
 தமிழ்
-
 </div>
 
 </div>
@@ -1222,11 +1248,25 @@ and gradually prepare for your examination.
 
 <div class="tags">
 
-<span class="tag">Topic Practice</span>
-<span class="tag">Easy</span>
-<span class="tag">Medium</span>
-<span class="tag">Hard</span>
-<span class="tag">Exam Practice</span>
+<span class="tag">
+Topic Practice
+</span>
+
+<span class="tag">
+Easy
+</span>
+
+<span class="tag">
+Medium
+</span>
+
+<span class="tag">
+Hard
+</span>
+
+<span class="tag">
+Exam Practice
+</span>
 
 </div>
 
@@ -1275,10 +1315,21 @@ Practise topics regularly, review mistakes and strengthen areas where you need m
 
 <ul>
 
-<li>✓ Daily Biology practice</li>
-<li>✓ Topic-based learning</li>
-<li>✓ Review mistakes</li>
-<li>✓ Identify weak areas</li>
+<li>
+✓ Daily Biology practice
+</li>
+
+<li>
+✓ Topic-based learning
+</li>
+
+<li>
+✓ Review mistakes
+</li>
+
+<li>
+✓ Identify weak areas
+</li>
 
 </ul>
 
@@ -1296,10 +1347,21 @@ Move toward mixed topics, harder questions, revision and exam-focused practice.
 
 <ul>
 
-<li>✓ Mixed-topic practice</li>
-<li>✓ Higher difficulty</li>
-<li>✓ Regular revision</li>
-<li>✓ Exam-focused preparation</li>
+<li>
+✓ Mixed-topic practice
+</li>
+
+<li>
+✓ Higher difficulty
+</li>
+
+<li>
+✓ Regular revision
+</li>
+
+<li>
+✓ Exam-focused preparation
+</li>
 
 </ul>
 
@@ -1349,12 +1411,29 @@ LKR 1,500
 
 <ul>
 
-<li>✓ 500+ A/L Biology MCQs</li>
-<li>✓ AI-powered Biology practice</li>
-<li>✓ English, Sinhala & Tamil</li>
-<li>✓ Topic-based questions</li>
-<li>✓ Easy, Medium & Hard levels</li>
-<li>✓ Progress tracking</li>
+<li>
+✓ 500+ A/L Biology MCQs
+</li>
+
+<li>
+✓ AI-powered Biology practice
+</li>
+
+<li>
+✓ English, Sinhala & Tamil
+</li>
+
+<li>
+✓ Topic-based questions
+</li>
+
+<li>
+✓ Easy, Medium & Hard levels
+</li>
+
+<li>
+✓ Progress tracking
+</li>
 
 </ul>
 
@@ -1407,12 +1486,29 @@ A/L Biology MCQ & Exam Practice
 
 <div class="links">
 
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="terms.html">Terms</a>
-<a href="privacy.html">Privacy</a>
-<a href="refund.html">Refund</a>
-<a href="cancellation.html">Cancellation</a>
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a href="terms.html">
+Terms
+</a>
+
+<a href="privacy.html">
+Privacy
+</a>
+
+<a href="refund.html">
+Refund
+</a>
+
+<a href="cancellation.html">
+Cancellation
+</a>
 
 </div>
 
@@ -1447,9 +1543,9 @@ document.getElementById("closeInstall");
 
 function isInstalled(){
 
-return (
+return(
 window.matchMedia("(display-mode: standalone)").matches ||
-window.navigator.standalone === true
+window.navigator.standalone===true
 );
 
 }
@@ -1509,7 +1605,7 @@ if(result.outcome==="accepted"){
 
 showInstallMessage(
 "CreateLK AL installed",
-"You can now open CreateLK AL from your home screen."
+"CreateLK AL has been added to your home screen."
 );
 
 }else{
@@ -1535,7 +1631,7 @@ return;
 }
 
 
-/* iPhone / iPad */
+/* iOS */
 
 const isIOS=
 /iphone|ipad|ipod/i.test(
@@ -1554,11 +1650,11 @@ return;
 }
 
 
-/* Browser has not fired install event */
+/* Browser did not provide install prompt */
 
 showInstallMessage(
 "Install not available yet",
-"Your browser has not made direct installation available yet. Make sure this page is served over HTTPS and manifest.json and sw.js are active."
+"Your browser has not made the direct installation option available yet. Make sure the site is served over HTTPS and manifest.json and sw.js are active."
 );
 
 }
