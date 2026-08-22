@@ -53,8 +53,8 @@ header{
 .nav{
   max-width:1100px;
   margin:auto;
-  height:64px;
-  padding:0 16px;
+  min-height:64px;
+  padding:10px 16px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -91,7 +91,7 @@ header{
   background:#172554
 }
 
-/* INSTALL */
+/* INSTALL BOX */
 
 .install-box{
   display:none;
@@ -99,12 +99,12 @@ header{
   right:12px;
   top:75px;
   z-index:500;
-  width:280px;
+  width:290px;
   background:#fff;
   border:1px solid #dce3ef;
-  border-radius:12px;
-  padding:15px;
-  box-shadow:0 12px 35px #0002
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 15px 40px #0002
 }
 
 .install-box.show{
@@ -113,21 +113,22 @@ header{
 
 .install-box strong{
   display:block;
-  font-size:13px;
-  margin-bottom:4px
+  font-size:14px;
+  margin-bottom:5px
 }
 
 .install-box p{
   color:#667085;
   font-size:11px;
-  margin-bottom:8px
+  line-height:1.5;
+  margin-bottom:10px
 }
 
 .install-box button{
   border:0;
   background:#155eef;
   color:#fff;
-  padding:7px 12px;
+  padding:8px 13px;
   border-radius:7px;
   font-size:10px;
   font-weight:800;
@@ -474,7 +475,8 @@ footer{
 @media(max-width:500px){
 
   .nav{
-    height:60px
+    min-height:60px;
+    padding:9px 12px
   }
 
   .logo{
@@ -497,6 +499,12 @@ footer{
 
   .section{
     padding:45px 14px
+  }
+
+  .install-box{
+    right:10px;
+    left:10px;
+    width:auto
   }
 }
 </style>
@@ -545,16 +553,16 @@ id="installBox"
 class="install-box">
 
 <strong>
-Install CreateLK AL
+📲 Install CreateLK AL
 </strong>
 
-<p>
-Install the app for quick access to A/L Biology practice.
+<p id="installText">
+Install CreateLK AL on your phone for quick access to A/L Biology practice.
 </p>
 
 <button
-type="button"
-onclick="closeInstall()">
+id="closeInstall"
+type="button">
 Close
 </button>
 
@@ -606,7 +614,8 @@ Premium
 
 <img
 src="https://assetsal.createlk.com/file_00000000697c82089443a75ed817e2a6.png"
-alt="CreateLK AL A/L Biology">
+alt="CreateLK AL A/L Biology"
+loading="eager">
 
 </div>
 
@@ -632,7 +641,6 @@ Focused practice for Sri Lankan A/L students.
 </p>
 
 </div>
-
 
 <div class="subject-card">
 
@@ -679,7 +687,6 @@ Everything focused on better practice.
 </p>
 
 </div>
-
 
 <div class="features">
 
@@ -760,7 +767,6 @@ Extended learning access for 30 days.
 
 </div>
 
-
 <div class="plan">
 
 <div class="plan-badge">
@@ -778,29 +784,12 @@ LKR 1,500
 
 <ul>
 
-<li>
-✓ Extended Biology MCQs
-</li>
-
-<li>
-✓ AI-powered practice
-</li>
-
-<li>
-✓ Topic-based questions
-</li>
-
-<li>
-✓ Difficulty-based practice
-</li>
-
-<li>
-✓ Progress tracking
-</li>
-
-<li>
-✓ Premium learning resources
-</li>
+<li>✓ Extended Biology MCQs</li>
+<li>✓ AI-powered practice</li>
+<li>✓ Topic-based questions</li>
+<li>✓ Difficulty-based practice</li>
+<li>✓ Progress tracking</li>
+<li>✓ Premium learning resources</li>
 
 </ul>
 
@@ -834,7 +823,6 @@ Choose your preferred payment method.
 </p>
 
 </div>
-
 
 <div class="payment-box">
 
@@ -875,43 +863,23 @@ Transfer LKR 1,500 and submit your payment proof.
 <div class="bank">
 
 <div>
-<strong>
-Bank
-</strong>
-
-<span>
-People's Bank
-</span>
+<strong>Bank</strong>
+<span>People's Bank</span>
 </div>
 
 <div>
-<strong>
-Branch
-</strong>
-
-<span>
-Udapussellawa
-</span>
+<strong>Branch</strong>
+<span>Udapussellawa</span>
 </div>
 
 <div>
-<strong>
-Account
-</strong>
-
-<span>
-292200280023178
-</span>
+<strong>Account</strong>
+<span>292200280023178</span>
 </div>
 
 <div>
-<strong>
-Name
-</strong>
-
-<span>
-Thinarathnam Saththiyanadan
-</span>
+<strong>Name</strong>
+<span>Thinarathnam Saththiyanadan</span>
 </div>
 
 </div>
@@ -947,29 +915,17 @@ A/L Biology MCQ & Exam Practice
 
 <div class="footer-links">
 
-<a href="about.html">
-About
-</a>
+<a href="about.html">About</a>
 
-<a href="contact.html">
-Contact
-</a>
+<a href="contact.html">Contact</a>
 
-<a href="terms.html">
-Terms
-</a>
+<a href="terms.html">Terms</a>
 
-<a href="privacy.html">
-Privacy
-</a>
+<a href="privacy.html">Privacy</a>
 
-<a href="refund.html">
-Refund
-</a>
+<a href="refund.html">Refund</a>
 
-<a href="cancellation.html">
-Cancellation
-</a>
+<a href="cancellation.html">Cancellation</a>
 
 </div>
 
@@ -982,7 +938,7 @@ Cancellation
 </footer>
 
 
-<!-- PWA + INSTALL -->
+<!-- PWA + INSTALL SCRIPT -->
 
 <script>
 
@@ -994,79 +950,152 @@ document.getElementById("installBtn");
 const installBox =
 document.getElementById("installBox");
 
+const installText =
+document.getElementById("installText");
+
+const closeInstall =
+document.getElementById("closeInstall");
+
 
 /* SERVICE WORKER */
 
-if("serviceWorker" in navigator){
+if ("serviceWorker" in navigator) {
 
-window.addEventListener("load",()=>{
+  window.addEventListener("load", () => {
 
-navigator.serviceWorker
-.register("/sw.js")
-.then(()=>{
-console.log("CreateLK AL PWA ready");
-})
-.catch(err=>{
-console.error("PWA error:",err);
-});
+    navigator.serviceWorker
+      .register("/sw.js", {
+        scope: "/"
+      })
+      .then(registration => {
 
-});
+        console.log(
+          "CreateLK AL Service Worker registered:",
+          registration.scope
+        );
+
+      })
+      .catch(error => {
+
+        console.error(
+          "Service Worker registration failed:",
+          error
+        );
+
+      });
+
+  });
 
 }
 
 
-/* INSTALL PROMPT */
+/* NATIVE INSTALL PROMPT */
 
 window.addEventListener(
-"beforeinstallprompt",
-event=>{
+  "beforeinstallprompt",
+  event => {
 
-event.preventDefault();
+    console.log(
+      "CreateLK AL install prompt available"
+    );
 
-deferredPrompt = event;
+    event.preventDefault();
 
-installBtn.style.display =
-"inline-flex";
+    deferredPrompt = event;
 
-});
+  }
+);
 
+
+/* INSTALL BUTTON */
 
 installBtn.addEventListener(
-"click",
-async()=>{
+  "click",
+  async () => {
 
-if(deferredPrompt){
+    /* Native prompt */
 
-deferredPrompt.prompt();
+    if (deferredPrompt) {
 
-await deferredPrompt.userChoice;
+      deferredPrompt.prompt();
 
-deferredPrompt = null;
+      const choice =
+        await deferredPrompt.userChoice;
 
-}else{
+      console.log(
+        "Install choice:",
+        choice.outcome
+      );
 
-installBox.classList.add("show");
+      deferredPrompt = null;
 
-}
+      return;
+    }
 
-});
+
+    /* Check if already installed */
+
+    const standalone =
+      window.matchMedia(
+        "(display-mode: standalone)"
+      ).matches;
+
+    if (standalone) {
+
+      installText.textContent =
+        "CreateLK AL is already installed on your device.";
+
+      installBox.classList.add("show");
+
+      return;
+    }
 
 
-function closeInstall(){
+    /* Android Chrome fallback */
 
-installBox.classList.remove("show");
+    installText.innerHTML =
+      "Open Chrome menu <b>⋮</b> and choose " +
+      "<b>Install app</b> or <b>Add to Home screen</b>.";
 
-}
+    installBox.classList.add("show");
 
+  }
+);
+
+
+/* CLOSE INSTALL BOX */
+
+closeInstall.addEventListener(
+  "click",
+  () => {
+
+    installBox.classList.remove("show");
+
+  }
+);
+
+
+/* APP INSTALLED */
 
 window.addEventListener(
-"appinstalled",
-()=>{
+  "appinstalled",
+  () => {
 
-installBtn.style.display =
-"none";
+    console.log(
+      "CreateLK AL installed successfully"
+    );
 
-});
+    deferredPrompt = null;
+
+    installBtn.style.display =
+      "none";
+
+    installBox.classList.remove(
+      "show"
+    );
+
+  }
+);
 
 </script>
 
