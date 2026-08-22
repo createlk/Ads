@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>CreateLK AL | Premium Biology</title>
+
 <meta name="description"
 content="CreateLK AL Premium A/L Biology learning membership.">
 
 <meta name="theme-color" content="#155eef">
+
 <link rel="manifest" href="/manifest.json">
 
 <style>
@@ -172,6 +174,26 @@ h1{
   border:1px solid #155eef;
 }
 
+.btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+/* STUDENT */
+
+.student{
+  background:#eef4ff;
+  border:1px solid #d6e4ff;
+  border-radius:10px;
+  padding:11px 13px;
+  margin-bottom:16px;
+  font-size:11px;
+}
+
+.student strong{
+  color:#155eef;
+}
+
 /* BANK */
 
 .bank{
@@ -236,10 +258,10 @@ input[type=text]{
   margin-bottom:10px;
 }
 
-.note{
-  margin-top:12px;
+.file-note{
   color:#667085;
-  font-size:10px;
+  font-size:9px;
+  margin:-4px 0 10px;
 }
 
 /* STATUS */
@@ -357,6 +379,13 @@ Get extended Biology practice and AI-powered learning.
 </p>
 
 
+<!-- STUDENT -->
+
+<div class="student" id="studentBox">
+Checking your student account...
+</div>
+
+
 <!-- PLAN -->
 
 <div class="plan">
@@ -414,9 +443,8 @@ Pay LKR 1,500 with PayHere →
 
 </button>
 
-<div class="note">
-Your payment is processed through the PayHere
-payment gateway.
+<div class="file-note">
+PayHere payment will be connected to the secure PayHere checkout Worker.
 </div>
 
 </div>
@@ -494,7 +522,8 @@ Payment Reference
 <input
 type="text"
 id="reference"
-placeholder="Enter transaction/reference number">
+placeholder="Enter transaction/reference number"
+autocomplete="off">
 
 
 <label>
@@ -504,11 +533,17 @@ Payment Slip
 <input
 type="file"
 id="slip"
-accept="image/*,.pdf">
+accept="image/jpeg,image/png,image/webp,application/pdf">
+
+
+<div class="file-note">
+JPG, PNG, WEBP or PDF • Maximum 5 MB
+</div>
 
 
 <button
 class="btn"
+id="submitBtn"
 type="button"
 onclick="submitPayment()">
 
@@ -581,7 +616,118 @@ A/L Biology MCQ & Exam Practice
 ========================= */
 
 const PAYMENT_API =
-"https://cl-al-mcq.createlk.workers.dev/";
+"https://cl-al-payment.createlk.workers.dev/";
+
+
+const PREMIUM_AMOUNT = 1500;
+
+
+/* =========================
+   STUDENT
+========================= */
+
+let currentStudent = null;
+
+
+function getStudent(){
+
+  let student = null;
+
+  /* First check sessionStorage */
+
+  try{
+
+    student =
+      JSON.parse(
+        sessionStorage.getItem(
+          "createlk_student"
+        ) || "null"
+      );
+
+  }catch(e){
+
+    student = null;
+
+  }
+
+
+  /* Then check localStorage */
+
+  if(!student){
+
+    try{
+
+      student =
+        JSON.parse(
+          localStorage.getItem(
+            "createlk_student"
+          ) || "null"
+        );
+
+    }catch(e){
+
+      student = null;
+
+    }
+
+  }
+
+
+  return student;
+
+}
+
+
+/* =========================
+   LOAD STUDENT
+========================= */
+
+function loadStudent(){
+
+  currentStudent =
+    getStudent();
+
+
+  const box =
+    document.getElementById(
+      "studentBox"
+    );
+
+
+  if(!currentStudent){
+
+    box.innerHTML =
+      "⚠️ Please <a href='login.html' style='color:#155eef;font-weight:800'>login</a> before making a payment.";
+
+    return;
+
+  }
+
+
+  const id =
+    currentStudent.id ||
+    currentStudent.student_id ||
+    currentStudent.uid;
+
+
+  if(!id){
+
+    box.innerHTML =
+      "⚠️ Student ID was not found. Please login again.";
+
+    currentStudent = null;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    "👤 Student ID: <strong>" +
+    escapeHTML(String(id)) +
+    "</strong>";
+
+}
 
 
 /* =========================
@@ -591,8 +737,11 @@ const PAYMENT_API =
 function payHere(){
 
   /*
-   PayHere checkout should be connected
-   to your separate PayHere Checkout Worker.
+    PayHere checkout will use
+    your separate PayHere Worker.
+
+    Keep PayHere credentials
+    outside this page.
   */
 
   window.location.href =
@@ -607,12 +756,26 @@ function payHere(){
 
 function showUpload(){
 
+  if(!currentStudent){
+
+    showStatus(
+      "Please login before submitting payment.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
   const box =
     document.getElementById(
       "uploadBox"
     );
 
+
   box.classList.add("show");
+
 
   box.scrollIntoView({
     behavior:"smooth",
@@ -629,19 +792,52 @@ function showUpload(){
 async function submitPayment(){
 
   const reference =
-    document.getElementById(
-      "reference"
-    ).value.trim();
+    document
+      .getElementById("reference")
+      .value
+      .trim();
+
 
   const file =
-    document.getElementById(
-      "slip"
-    ).files[0];
+    document
+      .getElementById("slip")
+      .files[0];
 
-  const status =
+
+  const button =
     document.getElementById(
-      "status"
+      "submitBtn"
     );
+
+
+  if(!currentStudent){
+
+    showStatus(
+      "Please login before submitting payment.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const uid =
+    currentStudent.id ||
+    currentStudent.student_id ||
+    currentStudent.uid;
+
+
+  if(!uid){
+
+    showStatus(
+      "Student ID was not found. Please login again.",
+      "error"
+    );
+
+    return;
+
+  }
 
 
   if(!reference){
@@ -680,43 +876,42 @@ async function submitPayment(){
   }
 
 
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "application/pdf"
+  ];
+
+
+  if(
+    file.type &&
+    !allowedTypes.includes(file.type)
+  ){
+
+    showStatus(
+      "Only JPG, PNG, WEBP or PDF files are allowed.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  button.disabled = true;
+
+  button.textContent =
+    "Submitting...";
+
+
   showStatus(
-    "Submitting payment...",
+    "Uploading your payment slip...",
     "pending"
   );
 
 
-  /*
-   This sends the payment information
-   to your Worker.
-
-   Your Worker can later upload the
-   actual file to R2 and create the
-   payment record in D1.
-  */
-
-
   try{
-
-    const student =
-      JSON.parse(
-        localStorage.getItem(
-          "createlk_student"
-        ) || "null"
-      );
-
-
-    if(!student){
-
-      showStatus(
-        "Please login before submitting payment.",
-        "error"
-      );
-
-      return;
-
-    }
-
 
     const form =
       new FormData();
@@ -724,23 +919,27 @@ async function submitPayment(){
 
     form.append(
       "uid",
-      student.id || ""
+      String(uid)
     );
+
 
     form.append(
       "amount",
-      "1500"
+      String(PREMIUM_AMOUNT)
     );
+
 
     form.append(
       "method",
       "BANK"
     );
 
+
     form.append(
       "ref",
       reference
     );
+
 
     form.append(
       "slip",
@@ -758,11 +957,27 @@ async function submitPayment(){
       );
 
 
-    const data =
-      await response.json();
+    let data = null;
 
 
-    if(!response.ok || !data.success){
+    try{
+
+      data =
+        await response.json();
+
+    }catch(e){
+
+      throw new Error(
+        "Invalid response from payment server."
+      );
+
+    }
+
+
+    if(
+      !response.ok ||
+      !data.success
+    ){
 
       throw new Error(
         data.error ||
@@ -773,7 +988,7 @@ async function submitPayment(){
 
 
     showStatus(
-      "✅ Payment submitted successfully. Your Premium membership is pending admin approval.",
+      "✅ Payment submitted successfully. Your LKR 1,500 Premium membership is now pending admin approval.",
       "success"
     );
 
@@ -782,18 +997,30 @@ async function submitPayment(){
       "reference"
     ).value = "";
 
+
     document.getElementById(
       "slip"
     ).value = "";
+
+
+    button.textContent =
+      "Payment Submitted";
 
 
   }catch(error){
 
     showStatus(
       "❌ " +
-      error.message,
+      (error.message ||
+       "Payment submission failed."),
       "error"
     );
+
+
+    button.disabled = false;
+
+    button.textContent =
+      "Submit Payment";
 
   }
 
@@ -814,14 +1041,39 @@ function showStatus(
       "status"
     );
 
+
   status.textContent =
     message;
+
 
   status.className =
     "status show " +
     type;
 
 }
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(value){
+
+  return value
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadStudent();
 
 </script>
 
