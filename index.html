@@ -10,6 +10,7 @@
 content="CreateLK AL helps A/L Biology students practise daily, learn from mistakes and prepare with confidence.">
 
 <meta name="theme-color" content="#155eef">
+
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="CreateLK AL">
@@ -332,80 +333,72 @@ color:#667085
 
 /* AI MCQ */
 
-.ai-section{
+.ai-mcq{
 background:#fff
 }
 
 .ai-box{
 max-width:760px;
 margin:auto;
-padding:28px 20px;
 background:#f8faff;
 border:2px solid #155eef;
 border-radius:18px;
+padding:28px 20px;
 text-align:center
 }
 
 .ai-icon{
 font-size:40px;
-margin-bottom:5px
-}
-
-.ai-box h3{
-font-size:22px;
 margin-bottom:6px
 }
 
-.ai-box p{
-font-size:12px;
-color:#667085;
-margin-bottom:20px
+.ai-box h3{
+font-size:21px;
+margin-bottom:5px
 }
 
-/* EQUAL LANGUAGE BUTTONS */
-
-.language-buttons{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
+.ai-box p{
+font-size:11px;
+color:#667085;
 margin-bottom:18px
 }
 
-.language-btn{
-height:52px;
-width:100%;
-border:1px solid #d5ddec;
+.ai-languages{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px
+}
+
+.ai-language{
+min-height:58px;
+border:1px solid #dbe3ef;
 background:#fff;
-border-radius:10px;
+border-radius:11px;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:11px;
 font-weight:900;
-color:#344054
+color:#344054;
+transition:.2s
 }
 
-.language-btn:hover{
+.ai-language:hover{
 border-color:#155eef;
 background:#eef4ff;
-color:#155eef
+color:#155eef;
+transform:translateY(-1px)
 }
 
-.language-btn.active{
+.ai-language strong{
+font-size:18px;
+margin-right:5px
+}
+
+.ai-language.active{
 border:2px solid #155eef;
 background:#eef4ff;
 color:#155eef
-}
-
-.ai-start{
-width:100%;
-height:46px;
-border:0;
-border-radius:9px;
-background:#155eef;
-color:#fff;
-font-size:11px;
-font-weight:900
 }
 
 /* SUBJECT */
@@ -728,7 +721,7 @@ gap:4px
 .nav-btn,
 .install-btn{
 height:34px;
-min-width:72px;
+min-width:68px;
 padding:0 7px;
 font-size:8.5px
 }
@@ -748,7 +741,8 @@ max-width:340px
 
 .hero-photo img{
 height:255px;
-border-radius:21px
+border-radius:21px;
+box-shadow:0 15px 35px #155eef24
 }
 
 .hero h1{
@@ -758,40 +752,81 @@ letter-spacing:-.5px
 
 .label{
 font-size:9px;
-padding:6px 10px
+padding:6px 10px;
+margin-bottom:10px
 }
 
 .hero p{
-font-size:12px
+font-size:12px;
+line-height:1.55;
+margin-bottom:16px
+}
+
+.btn{
+min-height:42px;
+padding:0 15px
 }
 
 .highlights{
 gap:9px;
-font-size:8.5px
+font-size:8.5px;
+margin-top:15px
 }
 
 .section{
 padding:40px 13px
 }
 
+.title{
+margin-bottom:22px
+}
+
 .title h2{
 font-size:23px
 }
 
+.title p{
+font-size:11px
+}
+
+.why-card,
+.stat,
+.journey-card{
+padding:19px
+}
+
 .ai-box{
-padding:23px 13px
+padding:22px 12px
 }
 
-.language-buttons{
-gap:7px
+.ai-languages{
+gap:6px
 }
 
-.language-btn{
-height:48px;
+.ai-language{
+min-height:54px;
 font-size:9px
 }
 
+.ai-language strong{
+font-size:17px
 }
+
+.subject-box{
+padding:23px 15px
+}
+
+.plan{
+padding:23px 18px
+}
+
+.cta{
+padding:42px 15px
+}
+
+}
+
+/* VERY SMALL */
 
 @media(max-width:370px){
 
@@ -801,7 +836,7 @@ font-size:14px
 
 .nav-btn,
 .install-btn{
-min-width:64px;
+min-width:63px;
 padding:0 5px;
 font-size:8px
 }
@@ -810,8 +845,16 @@ font-size:8px
 font-size:29px
 }
 
-.language-btn{
+.highlights{
+gap:6px
+}
+
+.ai-language{
 font-size:8px
+}
+
+.ai-language strong{
+font-size:15px
 }
 
 }
@@ -832,13 +875,21 @@ CreateLK AL
 
 <div class="nav-right">
 
-<a href="login.html" class="nav-btn">
+<!-- AUTH -->
+
+<a
+href="https://createlk-al-auth.createlk.workers.dev/login"
+class="nav-btn">
 Login
 </a>
 
-<a href="register.html" class="nav-btn">
+<a
+href="https://createlk-al-auth.createlk.workers.dev/register"
+class="nav-btn">
 Register
 </a>
+
+<!-- INSTALL -->
 
 <button
 id="installBtn"
@@ -861,11 +912,10 @@ id="installMessage"
 class="install-message">
 
 <strong id="installTitle">
-Install CreateLK AL
+CreateLK AL
 </strong>
 
 <p id="installText">
-Install the app for quick access to Biology practice.
 </p>
 
 <button
@@ -912,7 +962,7 @@ and prepare with confidence for your A/L examination.
 <div class="buttons">
 
 <a
-href="register.html"
+href="https://createlk-al-auth.createlk.workers.dev/register"
 class="btn primary">
 Start Free Practice →
 </a>
@@ -1088,9 +1138,7 @@ Practise whenever you are ready.
 
 <!-- AI MCQ -->
 
-<section
-class="ai-section"
-id="ai-mcq">
+<section class="ai-mcq">
 
 <div class="section">
 
@@ -1113,44 +1161,44 @@ Choose your preferred language and start practising.
 </div>
 
 <h3>
-AI Biology MCQ
+AI MCQ Practice
 </h3>
 
 <p>
-Generate Biology questions and practise in your preferred language.
+Generate Biology questions with AI and practise
+in English or Sinhala.
 </p>
 
-<div class="language-buttons">
+<div class="ai-languages">
 
-<button
-class="language-btn active"
-data-language="en"
-type="button">
-🇬🇧 English
-</button>
+<a
+href="ai-mcq.html?lang=en"
+class="ai-language active">
 
-<button
-class="language-btn"
-data-language="si"
-type="button">
-🇱🇰 සිංහල
-</button>
+<strong>🇬🇧</strong>
+English
 
-<button
-class="language-btn"
-data-language="ta"
-type="button">
-🇱🇰 தமிழ்
-</button>
+</a>
+
+<a
+href="ai-mcq.html?lang=si"
+class="ai-language">
+
+<strong>🇱🇰</strong>
+සිංහල
+
+</a>
+
+<a
+href="ai-mcq.html?lang=en"
+class="ai-language">
+
+<strong>🧬</strong>
+AI Practice
+
+</a>
 
 </div>
-
-<button
-id="startAI"
-class="ai-start"
-type="button">
-Start AI MCQ Practice →
-</button>
 
 </div>
 
@@ -1188,8 +1236,8 @@ G.C.E. A/L Biology
 </h3>
 
 <p>
-Practise by topic and difficulty, strengthen your understanding,
-and gradually prepare for your examination.
+Practise by topic and difficulty, strengthen your
+understanding, and gradually prepare for your examination.
 </p>
 
 <div class="tags">
@@ -1203,7 +1251,7 @@ and gradually prepare for your examination.
 </div>
 
 <a
-href="register.html"
+href="https://createlk-al-auth.createlk.workers.dev/register"
 class="btn primary">
 Start Biology Practice →
 </a>
@@ -1242,15 +1290,27 @@ Start today and build your Biology confidence over time.
 </h3>
 
 <p>
-Strengthen your knowledge through regular practice.
+Practise regularly and strengthen the areas where
+you need more work.
 </p>
 
 <ul>
 
-<li>✓ Daily Biology practice</li>
-<li>✓ Topic-based learning</li>
-<li>✓ Review mistakes</li>
-<li>✓ Identify weak areas</li>
+<li>
+✓ Daily Biology practice
+</li>
+
+<li>
+✓ Topic-based learning
+</li>
+
+<li>
+✓ Review mistakes
+</li>
+
+<li>
+✓ Identify weak areas
+</li>
 
 </ul>
 
@@ -1263,15 +1323,27 @@ Strengthen your knowledge through regular practice.
 </h3>
 
 <p>
-Progress toward harder questions and exam-focused practice.
+Move toward mixed topics, harder questions and
+exam-focused practice.
 </p>
 
 <ul>
 
-<li>✓ Mixed-topic practice</li>
-<li>✓ Higher difficulty</li>
-<li>✓ Regular revision</li>
-<li>✓ Exam-focused preparation</li>
+<li>
+✓ Mixed-topic practice
+</li>
+
+<li>
+✓ Higher difficulty
+</li>
+
+<li>
+✓ Regular revision
+</li>
+
+<li>
+✓ Exam-focused preparation
+</li>
 
 </ul>
 
@@ -1321,12 +1393,33 @@ LKR 1,500
 
 <ul>
 
-<li>✓ 500+ A/L Biology MCQs</li>
-<li>✓ AI-powered Biology practice</li>
-<li>✓ Topic-based questions</li>
-<li>✓ Easy, Medium & Hard levels</li>
-<li>✓ Progress tracking</li>
-<li>✓ Premium learning resources</li>
+<li>
+✓ 500+ A/L Biology MCQs
+</li>
+
+<li>
+✓ AI-powered Biology practice
+</li>
+
+<li>
+✓ English & Sinhala AI MCQs
+</li>
+
+<li>
+✓ Topic-based questions
+</li>
+
+<li>
+✓ Easy, Medium & Hard levels
+</li>
+
+<li>
+✓ Progress tracking
+</li>
+
+<li>
+✓ Premium learning resources
+</li>
 
 </ul>
 
@@ -1357,7 +1450,7 @@ One day at a time. One question at a time.
 </p>
 
 <a
-href="register.html"
+href="https://createlk-al-auth.createlk.workers.dev/register"
 class="btn primary">
 Create Your Free Account →
 </a>
@@ -1379,12 +1472,29 @@ A/L Biology MCQ & Exam Practice
 
 <div class="links">
 
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="terms.html">Terms</a>
-<a href="privacy.html">Privacy</a>
-<a href="refund.html">Refund</a>
-<a href="cancellation.html">Cancellation</a>
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a href="terms.html">
+Terms
+</a>
+
+<a href="privacy.html">
+Privacy
+</a>
+
+<a href="refund.html">
+Refund
+</a>
+
+<a href="cancellation.html">
+Cancellation
+</a>
 
 </div>
 
@@ -1397,134 +1507,106 @@ A/L Biology MCQ & Exam Practice
 
 <script>
 
-/* AUTH URL */
+/* =========================
+   DIRECT PWA INSTALL
+========================= */
 
-const AUTH_API =
-"https://createlk-al-auth.createlk.workers.dev/";
+let deferredPrompt = null;
 
-
-/* AI LANGUAGE */
-
-let selectedLanguage="en";
-
-const languageButtons=
-document.querySelectorAll(".language-btn");
-
-languageButtons.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-languageButtons.forEach(item=>{
-item.classList.remove("active");
-});
-
-button.classList.add("active");
-
-selectedLanguage=
-button.dataset.language;
-
-});
-
-});
-
-
-/* AI MCQ */
-
-document
-.getElementById("startAI")
-.addEventListener("click",()=>{
-
-window.location.href=
-"ai-mcq.html?lang="+
-encodeURIComponent(selectedLanguage);
-
-});
-
-
-/* PWA INSTALL */
-
-let deferredPrompt=null;
-
-const installBtn=
+const installBtn =
 document.getElementById("installBtn");
 
-const installMessage=
+const installMessage =
 document.getElementById("installMessage");
 
-const installTitle=
+const installTitle =
 document.getElementById("installTitle");
 
-const installText=
+const installText =
 document.getElementById("installText");
 
-
-function isInstalled(){
-
-return window.matchMedia(
-"(display-mode: standalone)"
-).matches ||
-window.navigator.standalone===true;
-
-}
+const closeInstall =
+document.getElementById("closeInstall");
 
 
 function showInstallMessage(title,text){
 
-installTitle.textContent=title;
-installText.textContent=text;
+installTitle.textContent = title;
+
+installText.textContent = text;
+
 installMessage.classList.add("show");
 
 }
 
 
+function isInstalled(){
+
+return (
+window.matchMedia("(display-mode: standalone)").matches ||
+window.navigator.standalone === true
+);
+
+}
+
+
+/* Browser gives us the native install prompt */
+
 window.addEventListener(
 "beforeinstallprompt",
-event=>{
+function(event){
 
 event.preventDefault();
 
-deferredPrompt=event;
+deferredPrompt = event;
 
-});
+installBtn.style.display = "inline-flex";
 
+}
+);
+
+
+/* Install button */
 
 installBtn.addEventListener(
 "click",
-async()=>{
+async function(){
 
 if(isInstalled()){
 
 showInstallMessage(
 "Already installed",
-"CreateLK AL is already installed on your device."
+"CreateLK AL is already installed on this device."
 );
 
 return;
 
 }
+
 
 if(deferredPrompt){
 
+try{
+
 deferredPrompt.prompt();
 
-const result=
+const result =
 await deferredPrompt.userChoice;
 
-deferredPrompt=null;
-
-if(result.outcome==="accepted"){
+if(result.outcome === "accepted"){
 
 showInstallMessage(
 "CreateLK AL installed",
-"You can now open CreateLK AL from your home screen."
+"CreateLK AL has been added to your device."
 );
 
-}else{
+}
 
-showInstallMessage(
-"Installation cancelled",
-"You can install CreateLK AL anytime."
-);
+deferredPrompt = null;
+
+}catch(error){
+
+console.log(error);
 
 }
 
@@ -1533,77 +1615,88 @@ return;
 }
 
 
-/* iPhone / iPad */
-
-const isIOS=
-/iphone|ipad|ipod/i.test(
-navigator.userAgent
-);
-
-if(isIOS){
+/*
+If the browser has not supplied the
+native prompt, do not show the old
+manual-install instructions.
+*/
 
 showInstallMessage(
-"Install CreateLK AL",
-"Tap the Share button in Safari, then choose Add to Home Screen."
+"Install not available yet",
+"The browser has not made the direct installation option available yet. Make sure the site is served over HTTPS and the PWA files are active."
 );
-
-return;
 
 }
-
-
-showInstallMessage(
-"Install CreateLK AL",
-"Use your browser's Install App or Add to Home Screen option."
 );
 
-});
 
-
-document
-.getElementById("closeInstall")
-.addEventListener(
-"click",
-()=>{
-
-installMessage.classList.remove("show");
-
-});
-
+/* Installation completed */
 
 window.addEventListener(
 "appinstalled",
-()=>{
+function(){
 
-deferredPrompt=null;
+deferredPrompt = null;
+
+installBtn.style.display = "none";
 
 showInstallMessage(
 "CreateLK AL installed",
-"You can now open it from your home screen."
+"You can now open CreateLK AL from your device."
 );
 
-});
+}
+);
 
 
-/* SERVICE WORKER */
+/* Close message */
+
+closeInstall.addEventListener(
+"click",
+function(){
+
+installMessage.classList.remove("show");
+
+}
+);
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
 
 if("serviceWorker" in navigator){
 
 window.addEventListener(
 "load",
-()=>{
+function(){
 
 navigator.serviceWorker.register(
 "/sw.js",
-{scope:"/"}
-).catch(error=>{
+{
+scope:"/"
+}
+).then(
+function(){
+
 console.log(
-"Service Worker registration failed:",
+"CreateLK AL service worker registered."
+);
+
+}
+).catch(
+function(error){
+
+console.error(
+"Service worker registration failed:",
 error
 );
-});
 
-});
+}
+);
+
+}
+);
 
 }
 
