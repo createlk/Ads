@@ -14,15 +14,33 @@ content="CreateLK AL provides G.C.E. A/L Biology MCQ practice, AI-powered learni
 <link rel="manifest" href="/manifest.json">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+
+html{
+  scroll-behavior:smooth
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#f7f9fc;
   color:#172033;
   line-height:1.6
 }
-a{text-decoration:none;color:inherit}
-button{font-family:inherit}
+
+a{
+  text-decoration:none;
+  color:inherit
+}
+
+button{
+  font-family:inherit
+}
+
+/* HEADER */
 
 header{
   position:sticky;
@@ -54,7 +72,8 @@ header{
   gap:7px
 }
 
-.nav-btn,.install-btn{
+.nav-btn,
+.install-btn{
   border:0;
   border-radius:8px;
   padding:9px 12px;
@@ -62,10 +81,60 @@ header{
   color:#fff;
   font-size:11px;
   font-weight:800;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center
+}
+
+.install-btn{
+  background:#172554
+}
+
+/* INSTALL */
+
+.install-box{
+  display:none;
+  position:fixed;
+  right:12px;
+  top:75px;
+  z-index:500;
+  width:280px;
+  background:#fff;
+  border:1px solid #dce3ef;
+  border-radius:12px;
+  padding:15px;
+  box-shadow:0 12px 35px #0002
+}
+
+.install-box.show{
+  display:block
+}
+
+.install-box strong{
+  display:block;
+  font-size:13px;
+  margin-bottom:4px
+}
+
+.install-box p{
+  color:#667085;
+  font-size:11px;
+  margin-bottom:8px
+}
+
+.install-box button{
+  border:0;
+  background:#155eef;
+  color:#fff;
+  padding:7px 12px;
+  border-radius:7px;
+  font-size:10px;
+  font-weight:800;
   cursor:pointer
 }
 
-.install-btn{background:#172554}
+/* HERO */
 
 .hero{
   padding:55px 16px;
@@ -98,7 +167,9 @@ h1{
   margin-bottom:15px
 }
 
-h1 span{color:#155eef}
+h1 span{
+  color:#155eef
+}
 
 .hero p{
   max-width:560px;
@@ -142,6 +213,8 @@ h1 span{color:#155eef}
   box-shadow:0 15px 40px #155eef20
 }
 
+/* SECTIONS */
+
 .section{
   max-width:1100px;
   margin:auto;
@@ -162,6 +235,8 @@ h1 span{color:#155eef}
   color:#667085;
   font-size:13px
 }
+
+/* SUBJECT */
 
 .subject-card{
   max-width:650px;
@@ -189,6 +264,8 @@ h1 span{color:#155eef}
   margin-bottom:18px
 }
 
+/* FEATURES */
+
 .features{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -203,7 +280,9 @@ h1 span{color:#155eef}
   text-align:center
 }
 
-.card-icon{font-size:28px}
+.card-icon{
+  font-size:28px
+}
 
 .card h3{
   font-size:15px;
@@ -214,6 +293,8 @@ h1 span{color:#155eef}
   color:#667085;
   font-size:12px
 }
+
+/* PREMIUM */
 
 .premium{
   background:#eef4ff
@@ -270,6 +351,8 @@ h1 span{color:#155eef}
   font-size:12px
 }
 
+/* PAYMENT */
+
 .payment-box{
   max-width:800px;
   margin:auto;
@@ -312,9 +395,15 @@ h1 span{color:#155eef}
   font-size:11px
 }
 
-.bank div:last-child{border:0}
+.bank div:last-child{
+  border:0
+}
 
-.bank span{text-align:right}
+.bank span{
+  text-align:right
+}
+
+/* FOOTER */
 
 footer{
   background:#0b1120;
@@ -347,55 +436,31 @@ footer{
   font-size:11px
 }
 
-.install-box{
-  display:none;
-  position:fixed;
-  right:12px;
-  top:75px;
-  z-index:500;
-  width:280px;
-  background:#fff;
-  border:1px solid #dce3ef;
-  border-radius:12px;
-  padding:15px;
-  box-shadow:0 12px 35px #0002
+.footer-links a:hover{
+  color:#fff
 }
 
-.install-box.show{display:block}
-
-.install-box strong{
-  display:block;
-  font-size:13px;
-  margin-bottom:4px
-}
-
-.install-box p{
-  color:#667085;
-  font-size:11px;
-  margin-bottom:8px
-}
-
-.install-box button{
-  border:0;
-  background:#155eef;
-  color:#fff;
-  padding:7px 12px;
-  border-radius:7px;
-  font-size:10px;
-  font-weight:800
-}
+/* MOBILE */
 
 @media(max-width:750px){
+
   .hero-inner{
     grid-template-columns:1fr;
     text-align:center
   }
 
-  .hero p{margin-left:auto;margin-right:auto}
+  .hero p{
+    margin-left:auto;
+    margin-right:auto
+  }
 
-  .buttons{justify-content:center}
+  .buttons{
+    justify-content:center
+  }
 
-  h1{font-size:36px}
+  h1{
+    font-size:36px
+  }
 
   .features{
     grid-template-columns:1fr
@@ -407,11 +472,17 @@ footer{
 }
 
 @media(max-width:500px){
-  .nav{height:60px}
 
-  .logo{font-size:16px}
+  .nav{
+    height:60px
+  }
 
-  .nav-btn,.install-btn{
+  .logo{
+    font-size:16px
+  }
+
+  .nav-btn,
+  .install-btn{
     padding:8px 9px;
     font-size:9px
   }
@@ -420,7 +491,9 @@ footer{
     padding:40px 14px
   }
 
-  h1{font-size:32px}
+  h1{
+    font-size:32px
+  }
 
   .section{
     padding:45px 14px
@@ -431,7 +504,10 @@ footer{
 
 <body>
 
+<!-- HEADER -->
+
 <header>
+
 <div class="nav">
 
 <a href="index.html" class="logo">
@@ -440,30 +516,45 @@ CreateLK AL
 
 <div class="nav-right">
 
-<a href="login.html" class="nav-btn">Login</a>
+<a href="login.html" class="nav-btn">
+Login
+</a>
 
-<a href="register.html" class="nav-btn">Register</a>
+<a href="register.html" class="nav-btn">
+Register
+</a>
 
-<button id="installBtn" class="install-btn">
+<button
+id="installBtn"
+class="install-btn"
+type="button">
 📲 Install
 </button>
 
 </div>
+
 </div>
+
 </header>
 
 
-<!-- INSTALL -->
+<!-- INSTALL MESSAGE -->
 
-<div id="installBox" class="install-box">
+<div
+id="installBox"
+class="install-box">
 
-<strong>Install CreateLK AL</strong>
+<strong>
+Install CreateLK AL
+</strong>
 
 <p>
 Install the app for quick access to A/L Biology practice.
 </p>
 
-<button onclick="closeInstall()">
+<button
+type="button"
+onclick="closeInstall()">
 Close
 </button>
 
@@ -494,11 +585,15 @@ AI-powered practice and progress tracking.
 
 <div class="buttons">
 
-<a href="register.html" class="btn primary">
+<a
+href="register.html"
+class="btn primary">
 Start Learning →
 </a>
 
-<a href="#premium" class="btn secondary">
+<a
+href="#premium"
+class="btn secondary">
 Premium
 </a>
 
@@ -528,7 +623,9 @@ alt="CreateLK AL A/L Biology">
 
 <div class="title">
 
-<h2>A/L Biology</h2>
+<h2>
+A/L Biology
+</h2>
 
 <p>
 Focused practice for Sri Lankan A/L students.
@@ -536,18 +633,25 @@ Focused practice for Sri Lankan A/L students.
 
 </div>
 
+
 <div class="subject-card">
 
-<div class="subject-icon">🧬</div>
+<div class="subject-icon">
+🧬
+</div>
 
-<h3>G.C.E. A/L Biology</h3>
+<h3>
+G.C.E. A/L Biology
+</h3>
 
 <p>
 Practise Biology MCQs by topic and difficulty,
 and improve through regular learning.
 </p>
 
-<a href="register.html" class="btn primary">
+<a
+href="register.html"
+class="btn primary">
 Start Biology Practice →
 </a>
 
@@ -566,30 +670,67 @@ Start Biology Practice →
 
 <div class="title">
 
-<h2>Why CreateLK AL?</h2>
+<h2>
+Why CreateLK AL?
+</h2>
 
-<p>Everything focused on better practice.</p>
+<p>
+Everything focused on better practice.
+</p>
 
 </div>
+
 
 <div class="features">
 
 <div class="card">
-<div class="card-icon">🧠</div>
-<h3>Biology MCQs</h3>
-<p>Topic-based A/L Biology practice.</p>
+
+<div class="card-icon">
+🧠
 </div>
 
-<div class="card">
-<div class="card-icon">🤖</div>
-<h3>AI Practice</h3>
-<p>AI-assisted additional question practice.</p>
+<h3>
+Biology MCQs
+</h3>
+
+<p>
+Topic-based A/L Biology practice.
+</p>
+
 </div>
 
+
 <div class="card">
-<div class="card-icon">📊</div>
-<h3>Progress</h3>
-<p>Track your learning and performance.</p>
+
+<div class="card-icon">
+🤖
+</div>
+
+<h3>
+AI Practice
+</h3>
+
+<p>
+AI-assisted additional question practice.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+📊
+</div>
+
+<h3>
+Progress
+</h3>
+
+<p>
+Track your learning and performance.
+</p>
+
 </div>
 
 </div>
@@ -601,23 +742,34 @@ Start Biology Practice →
 
 <!-- PREMIUM -->
 
-<section class="premium" id="premium">
+<section
+class="premium"
+id="premium">
 
 <div class="section">
 
 <div class="title">
 
-<h2>Premium Biology</h2>
+<h2>
+Premium Biology
+</h2>
 
-<p>Extended learning access for 30 days.</p>
+<p>
+Extended learning access for 30 days.
+</p>
 
 </div>
 
+
 <div class="plan">
 
-<div class="plan-badge">PREMIUM</div>
+<div class="plan-badge">
+PREMIUM
+</div>
 
-<h3>Premium Membership</h3>
+<h3>
+Premium Membership
+</h3>
 
 <div class="price">
 LKR 1,500
@@ -625,15 +777,36 @@ LKR 1,500
 </div>
 
 <ul>
-<li>✓ Extended Biology MCQs</li>
-<li>✓ AI-powered practice</li>
-<li>✓ Topic-based questions</li>
-<li>✓ Difficulty-based practice</li>
-<li>✓ Progress tracking</li>
-<li>✓ Premium learning resources</li>
+
+<li>
+✓ Extended Biology MCQs
+</li>
+
+<li>
+✓ AI-powered practice
+</li>
+
+<li>
+✓ Topic-based questions
+</li>
+
+<li>
+✓ Difficulty-based practice
+</li>
+
+<li>
+✓ Progress tracking
+</li>
+
+<li>
+✓ Premium learning resources
+</li>
+
 </ul>
 
-<a href="premium.html" class="btn primary">
+<a
+href="premium.html"
+class="btn primary">
 Get Premium →
 </a>
 
@@ -652,32 +825,48 @@ Get Premium →
 
 <div class="title">
 
-<h2>Payment Options</h2>
+<h2>
+Payment Options
+</h2>
 
-<p>Choose your preferred payment method.</p>
+<p>
+Choose your preferred payment method.
+</p>
 
 </div>
 
+
 <div class="payment-box">
+
+
+<!-- PAYHERE -->
 
 <div class="payment-card">
 
-<h3>💳 PayHere</h3>
+<h3>
+💳 PayHere
+</h3>
 
 <p>
 Pay securely online through PayHere.
 </p>
 
-<a href="premium.html" class="btn primary">
+<a
+href="premium.html"
+class="btn primary">
 Pay with PayHere →
 </a>
 
 </div>
 
 
+<!-- BANK -->
+
 <div class="payment-card">
 
-<h3>🏦 Bank Transfer</h3>
+<h3>
+🏦 Bank Transfer
+</h3>
 
 <p>
 Transfer LKR 1,500 and submit your payment proof.
@@ -686,28 +875,50 @@ Transfer LKR 1,500 and submit your payment proof.
 <div class="bank">
 
 <div>
-<strong>Bank</strong>
-<span>People's Bank</span>
+<strong>
+Bank
+</strong>
+
+<span>
+People's Bank
+</span>
 </div>
 
 <div>
-<strong>Branch</strong>
-<span>Udapussellawa</span>
+<strong>
+Branch
+</strong>
+
+<span>
+Udapussellawa
+</span>
 </div>
 
 <div>
-<strong>Account</strong>
-<span>292200280023178</span>
+<strong>
+Account
+</strong>
+
+<span>
+292200280023178
+</span>
 </div>
 
 <div>
-<strong>Name</strong>
-<span>Thinarathnam Saththiyanadan</span>
+<strong>
+Name
+</strong>
+
+<span>
+Thinarathnam Saththiyanadan
+</span>
 </div>
 
 </div>
 
-<a href="payment.html" class="btn secondary">
+<a
+href="payment.html"
+class="btn secondary">
 Bank Payment →
 </a>
 
@@ -736,17 +947,29 @@ A/L Biology MCQ & Exam Practice
 
 <div class="footer-links">
 
-<a href="about.html">About</a>
+<a href="about.html">
+About
+</a>
 
-<a href="contact.html">Contact</a>
+<a href="contact.html">
+Contact
+</a>
 
-<a href="terms.html">Terms</a>
+<a href="terms.html">
+Terms
+</a>
 
-<a href="privacy.html">Privacy</a>
+<a href="privacy.html">
+Privacy
+</a>
 
-<a href="refund.html">Refund</a>
+<a href="refund.html">
+Refund
+</a>
 
-<a href="cancellation.html">Cancellation</a>
+<a href="cancellation.html">
+Cancellation
+</a>
 
 </div>
 
@@ -759,16 +982,40 @@ A/L Biology MCQ & Exam Practice
 </footer>
 
 
+<!-- PWA + INSTALL -->
+
 <script>
 
-let deferredPrompt=null;
+let deferredPrompt = null;
 
-const installBtn=
+const installBtn =
 document.getElementById("installBtn");
 
-const installBox=
+const installBox =
 document.getElementById("installBox");
 
+
+/* SERVICE WORKER */
+
+if("serviceWorker" in navigator){
+
+window.addEventListener("load",()=>{
+
+navigator.serviceWorker
+.register("/sw.js")
+.then(()=>{
+console.log("CreateLK AL PWA ready");
+})
+.catch(err=>{
+console.error("PWA error:",err);
+});
+
+});
+
+}
+
+
+/* INSTALL PROMPT */
 
 window.addEventListener(
 "beforeinstallprompt",
@@ -776,12 +1023,12 @@ event=>{
 
 event.preventDefault();
 
-deferredPrompt=event;
+deferredPrompt = event;
 
-installBtn.style.display="inline-block";
+installBtn.style.display =
+"inline-flex";
 
-}
-);
+});
 
 
 installBtn.addEventListener(
@@ -792,10 +1039,9 @@ if(deferredPrompt){
 
 deferredPrompt.prompt();
 
-const result=
 await deferredPrompt.userChoice;
 
-deferredPrompt=null;
+deferredPrompt = null;
 
 }else{
 
@@ -803,8 +1049,7 @@ installBox.classList.add("show");
 
 }
 
-}
-);
+});
 
 
 function closeInstall(){
@@ -818,10 +1063,10 @@ window.addEventListener(
 "appinstalled",
 ()=>{
 
-installBtn.style.display="none";
+installBtn.style.display =
+"none";
 
-}
-);
+});
 
 </script>
 
