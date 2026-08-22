@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1">
+
+<title>CreateLK AL | Biology Dashboard</title>
+
+<meta name="description"
+content="CreateLK AL A/L Biology student dashboard for MCQ practice, AI practice and progress tracking.">
+
+<meta name="theme-color" content="#155eef">
+
+<link rel="manifest" href="/manifest.json">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+}
+
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav{
+  max-width:1050px;
+  height:62px;
+  margin:auto;
+  padding:0 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#155eef;
+  font-size:18px;
+  font-weight:900;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.nav-btn{
+  border:0;
+  border-radius:8px;
+  background:#eef4ff;
+  color:#155eef;
+  padding:8px 11px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.logout{
+  background:#feecec;
+  color:#d92d20;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#eef4ff,#fff);
+  padding:38px 15px;
+}
+
+.hero-inner{
+  max-width:1050px;
+  margin:auto;
+}
+
+.badge{
+  display:inline-block;
+  background:#e7efff;
+  color:#155eef;
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.hero h1{
+  font-size:32px;
+  line-height:1.15;
+  margin-bottom:8px;
+}
+
+.hero h1 span{
+  color:#155eef;
+}
+
+.hero p{
+  color:#667085;
+  font-size:13px;
+}
+
+/* MAIN */
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:25px 15px 50px;
+}
+
+.welcome{
+  margin-bottom:20px;
+}
+
+.welcome h2{
+  font-size:20px;
+  margin-bottom:4px;
+}
+
+.welcome p{
+  color:#667085;
+  font-size:12px;
+}
+
+/* MEMBERSHIP */
+
+.membership{
+  background:#fff;
+  border:1px solid #e1e6ef;
+  border-radius:15px;
+  padding:18px;
+  margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.member-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.member-icon{
+  width:43px;
+  height:43px;
+  border-radius:12px;
+  background:#e7efff;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+}
+
+.member-title{
+  font-size:14px;
+  font-weight:900;
+}
+
+.member-status{
+  color:#667085;
+  font-size:11px;
+  margin-top:2px;
+}
+
+.premium-btn{
+  background:#155eef;
+  color:#fff;
+  border:0;
+  border-radius:8px;
+  padding:10px 14px;
+  font-size:11px;
+  font-weight:900;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:#fff;
+  border:1px solid #e1e6ef;
+  border-radius:14px;
+  padding:18px;
+}
+
+.stat-icon{
+  font-size:23px;
+  margin-bottom:5px;
+}
+
+.stat-number{
+  font-size:25px;
+  font-weight:900;
+  color:#155eef;
+}
+
+.stat-label{
+  font-size:11px;
+  color:#667085;
+  margin-top:2px;
+}
+
+/* SECTION */
+
+.section-title{
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+/* ACTIONS */
+
+.actions{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-bottom:28px;
+}
+
+.action{
+  background:#fff;
+  border:1px solid #e1e6ef;
+  border-radius:15px;
+  padding:22px;
+  transition:.2s;
+}
+
+.action:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px #0000000d;
+}
+
+.action-icon{
+  width:45px;
+  height:45px;
+  border-radius:12px;
+  background:#eef4ff;
+  display:grid;
+  place-items:center;
+  font-size:23px;
+  margin-bottom:12px;
+}
+
+.action h3{
+  font-size:15px;
+  margin-bottom:4px;
+}
+
+.action p{
+  color:#667085;
+  font-size:11px;
+  margin-bottom:15px;
+}
+
+.action-btn{
+  display:inline-flex;
+  min-height:34px;
+  align-items:center;
+  justify-content:center;
+  padding:0 12px;
+  border-radius:7px;
+  background:#155eef;
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+}
+
+/* BIOLOGY */
+
+.bio{
+  background:#fff;
+  border:1px solid #dce5f3;
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:25px;
+}
+
+.bio-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.bio-icon{
+  width:48px;
+  height:48px;
+  border-radius:13px;
+  background:#e8fff4;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+}
+
+.bio h3{
+  font-size:17px;
+}
+
+.bio small{
+  color:#667085;
+  font-size:10px;
+}
+
+.progress{
+  height:9px;
+  background:#edf0f5;
+  border-radius:20px;
+  overflow:hidden;
+  margin:10px 0 6px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#155eef;
+  border-radius:20px;
+}
+
+.progress-text{
+  display:flex;
+  justify-content:space-between;
+  color:#667085;
+  font-size:10px;
+}
+
+/* PREMIUM */
+
+.premium{
+  background:linear-gradient(135deg,#172554,#155eef);
+  color:#fff;
+  border-radius:17px;
+  padding:24px;
+  margin-bottom:25px;
+}
+
+.premium h2{
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.premium p{
+  font-size:12px;
+  opacity:.9;
+  margin-bottom:15px;
+}
+
+.premium ul{
+  list-style:none;
+  margin-bottom:17px;
+}
+
+.premium li{
+  font-size:11px;
+  padding:4px 0;
+}
+
+.white-btn{
+  display:inline-flex;
+  background:#fff;
+  color:#155eef;
+  min-height:38px;
+  padding:0 15px;
+  border-radius:8px;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:900;
+}
+
+/* FOOTER */
+
+footer{
+  background:#0b1120;
+  color:#fff;
+  padding:25px 15px;
+  text-align:center;
+}
+
+.footer-logo{
+  font-size:15px;
+  font-weight:900;
+  margin-bottom:5px;
+}
+
+footer p{
+  color:#9aa5b5;
+  font-size:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+  .nav{
+    height:58px;
+  }
+
+  .logo{
+    font-size:16px;
+  }
+
+  .nav-btn{
+    padding:7px 8px;
+    font-size:9px;
+  }
+
+  .hero{
+    padding:32px 15px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .actions{
+    grid-template-columns:1fr;
+  }
+
+  .membership{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .premium-btn{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="index.html" class="logo">
+CreateLK AL
+</a>
+
+<div class="nav-right">
+
+<a href="profile.html" class="nav-btn">
+👤 Profile
+</a>
+
+<button
+class="nav-btn logout"
+onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div class="badge">
+🧬 G.C.E. A/L BIOLOGY
+</div>
+
+<h1>
+Welcome back,<br>
+<span id="studentName">Student</span>
+</h1>
+
+<p>
+Continue your Biology preparation and improve every day.
+</p>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- MEMBERSHIP -->
+
+<div class="membership">
+
+<div class="member-left">
+
+<div class="member-icon">
+⭐
+</div>
+
+<div>
+
+<div class="member-title">
+Membership
+</div>
+
+<div
+class="member-status"
+id="membershipStatus">
+Free Member
+</div>
+
+</div>
+
+</div>
+
+<a
+href="premium.html"
+class="premium-btn"
+id="premiumButton">
+Upgrade Premium
+</a>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-icon">
+📝
+</div>
+
+<div
+class="stat-number"
+id="questionCount">
+0
+</div>
+
+<div class="stat-label">
+Questions Practised
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🎯
+</div>
+
+<div
+class="stat-number"
+id="correctCount">
+0
+</div>
+
+<div class="stat-label">
+Correct Answers
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+📊
+</div>
+
+<div
+class="stat-number"
+id="scoreCount">
+0%
+</div>
+
+<div class="stat-label">
+Accuracy
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<h2 class="section-title">
+Biology Practice
+</h2>
+
+<div class="actions">
+
+
+<div class="action">
+
+<div class="action-icon">
+🧠
+</div>
+
+<h3>
+Biology MCQs
+</h3>
+
+<p>
+Practise A/L Biology questions by topic and difficulty.
+</p>
+
+<a
+href="mcq.html"
+class="action-btn">
+Start Practice →
+</a>
+
+</div>
+
+
+<div class="action">
+
+<div class="action-icon">
+🤖
+</div>
+
+<h3>
+AI Biology Practice
+</h3>
+
+<p>
+Generate additional A/L Biology questions using AI.
+</p>
+
+<a
+href="ai.html"
+class="action-btn">
+Start AI Practice →
+</a>
+
+</div>
+
+
+<div class="action">
+
+<div class="action-icon">
+📚
+</div>
+
+<h3>
+Biology Topics
+</h3>
+
+<p>
+Choose a Biology topic and practise focused questions.
+</p>
+
+<a
+href="topics.html"
+class="action-btn">
+View Topics →
+</a>
+
+</div>
+
+
+<div class="action">
+
+<div class="action-icon">
+📊
+</div>
+
+<h3>
+My Progress
+</h3>
+
+<p>
+View your Biology practice activity and performance.
+</p>
+
+<a
+href="progress.html"
+class="action-btn">
+View Progress →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- BIOLOGY PROGRESS -->
+
+<div class="bio">
+
+<div class="bio-top">
+
+<div class="bio-icon">
+🧬
+</div>
+
+<div>
+
+<h3>
+A/L Biology
+</h3>
+
+<small>
+Your overall Biology practice
+</small>
+
+</div>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+<div class="progress-text">
+
+<span>
+Progress
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+</div>
+
+
+<!-- PREMIUM -->
+
+<div class="premium">
+
+<h2>
+⭐ Premium Biology
+</h2>
+
+<p>
+Unlock extended Biology practice and AI-powered learning.
+</p>
+
+<ul>
+
+<li>
+✓ Extended Biology MCQs
+</li>
+
+<li>
+✓ AI-powered Biology practice
+</li>
+
+<li>
+✓ Topic-based questions
+</li>
+
+<li>
+✓ Difficulty-based practice
+</li>
+
+<li>
+✓ Detailed progress tracking
+</li>
+
+</ul>
+
+<a
+href="premium.html"
+class="white-btn">
+View Premium — LKR 1,500 →
+</a>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="footer-logo">
+CreateLK AL
+</div>
+
+<p>
+A/L Biology MCQ & Exam Practice
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   LOGIN DATA
+========================= */
+
+function loadStudent(){
+
+  try{
+
+    const student =
+      JSON.parse(
+        localStorage.getItem("student") ||
+        sessionStorage.getItem("student") ||
+        "null"
+      );
+
+    if(student){
+
+      const name =
+        student.first_name ||
+        student.firstName ||
+        student.name ||
+        "Student";
+
+      document.getElementById(
+        "studentName"
+      ).textContent = name;
+
+      if(
+        student.membership_status === "PREMIUM" ||
+        student.membershipStatus === "PREMIUM" ||
+        student.membership === "PREMIUM"
+      ){
+
+        document.getElementById(
+          "membershipStatus"
+        ).textContent =
+          "Premium Member";
+
+        document.getElementById(
+          "premiumButton"
+        ).textContent =
+          "Premium Active";
+
+      }
+
+    }
+
+  }catch(e){
+
+    console.log("Student data unavailable");
+
+  }
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+  localStorage.removeItem("student");
+  sessionStorage.removeItem("student");
+
+  localStorage.removeItem("createlk_student");
+  sessionStorage.removeItem("createlk_student");
+
+  localStorage.removeItem("createlk_token");
+  sessionStorage.removeItem("createlk_token");
+
+  location.href="login.html";
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function loadProgress(){
+
+  const total =
+    Number(
+      localStorage.getItem(
+        "biology_questions"
+      ) || 0
+    );
+
+  const correct =
+    Number(
+      localStorage.getItem(
+        "biology_correct"
+      ) || 0
+    );
+
+  document.getElementById(
+    "questionCount"
+  ).textContent = total;
+
+  document.getElementById(
+    "correctCount"
+  ).textContent = correct;
+
+  let accuracy = 0;
+
+  if(total > 0){
+
+    accuracy =
+      Math.round(
+        (correct / total) * 100
+      );
+
+  }
+
+  document.getElementById(
+    "scoreCount"
+  ).textContent =
+    accuracy + "%";
+
+  const progress =
+    Math.min(
+      accuracy,
+      100
+    );
+
+  document.getElementById(
+    "progressBar"
+  ).style.width =
+    progress + "%";
+
+  document.getElementById(
+    "progressText"
+  ).textContent =
+    progress + "%";
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadStudent();
+loadProgress();
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if(
+  "serviceWorker" in navigator
+){
+
+  window.addEventListener(
+    "load",
+    ()=>{
+      navigator.serviceWorker
+        .register("/sw.js")
+        .catch(
+          err =>
+          console.log(
+            "SW error:",
+            err
+          )
+        );
+    }
+  );
+
+}
+
+</script>
+
+</body>
+</html>
