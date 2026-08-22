@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CreateLK AL | A/L Biology Practice</title>
-
-<meta name="description" content="CreateLK AL helps Sri Lankan A/L Biology students practise 10 questions daily, learn from mistakes and build exam confidence.">
+<meta name="description" content="CreateLK AL helps Sri Lankan A/L Biology students practise daily, learn from mistakes and build exam confidence.">
 <meta name="theme-color" content="#155eef">
+
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="CreateLK AL">
@@ -15,111 +15,587 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f7f9fc;color:#172033;line-height:1.55}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f7f9fc;
+color:#172033;
+line-height:1.55
+}
+
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer}
 
-header{background:#fff;border-bottom:1px solid #e7ebf2;position:sticky;top:0;z-index:1000}
-.nav{max-width:1100px;margin:auto;padding:0 15px;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.logo{font-size:18px;font-weight:900;color:#155eef}
-.nav-links{display:flex;gap:6px;align-items:center}
-.nav-btn,.install-btn{height:36px;padding:0 11px;border:0;border-radius:8px;background:#155eef;color:#fff;font-size:10px;font-weight:900;display:inline-flex;align-items:center;justify-content:center}
-.install-btn{background:#172554}
+header{
+background:#fff;
+border-bottom:1px solid #e7ebf2;
+position:sticky;
+top:0;
+z-index:1000
+}
 
-.hero{padding:50px 15px 55px;text-align:center;background:linear-gradient(135deg,#eef4ff,#fff,#f5f3ff)}
-.hero-inner{max-width:850px;margin:auto}
+.nav{
+max-width:1100px;
+margin:auto;
+padding:0 15px;
+min-height:64px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:8px
+}
 
-.photo-wrap{width:170px;height:170px;margin:0 auto 18px;position:relative}
-.photo{width:100%;height:100%;object-fit:cover;border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 3px #155eef20,0 15px 35px #155eef25}
+.logo{
+font-size:18px;
+font-weight:900;
+color:#155eef
+}
 
-.label{display:inline-block;padding:7px 13px;border-radius:30px;background:#e7efff;color:#155eef;font-size:10px;font-weight:900;margin-bottom:12px}
-.hero h1{font-size:42px;line-height:1.12;margin-bottom:12px}
-.hero h1 span{color:#155eef}
-.hero p{max-width:650px;margin:0 auto 20px;color:#667085;font-size:15px}
+.nav-links{
+display:flex;
+gap:6px;
+align-items:center
+}
 
-.buttons{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:9px;font-size:11px;font-weight:900}
-.primary{background:#155eef;color:#fff}
-.secondary{background:#fff;color:#155eef;border:1px solid #155eef}
+.nav-btn,
+.install-btn{
+height:36px;
+padding:0 11px;
+border:0;
+border-radius:8px;
+background:#155eef;
+color:#fff;
+font-size:10px;
+font-weight:900;
+display:inline-flex;
+align-items:center;
+justify-content:center
+}
 
-.section{max-width:1100px;margin:auto;padding:50px 15px}
-.title{text-align:center;margin-bottom:28px}
-.title h2{font-size:28px;margin-bottom:6px}
-.title p{font-size:13px;color:#667085}
+.install-btn{
+background:#172554
+}
 
-.daily{background:#fff}
-.daily-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.stat{background:#f8faff;border:1px solid #e2e8f0;border-radius:15px;padding:22px;text-align:center}
-.icon{font-size:28px;margin-bottom:5px}
-.number{font-size:29px;font-weight:900;color:#155eef}
-.stat h3{font-size:14px}
-.stat p{font-size:10px;color:#667085}
+/* INSTALL MESSAGE */
 
-.routine{background:#f0f5ff}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.card{background:#fff;border:1px solid #e2e7ef;border-radius:15px;padding:23px;text-align:center}
-.card h3{font-size:15px;margin:6px 0}
-.card p{font-size:11px;color:#667085}
+.install-message{
+display:none;
+position:fixed;
+top:72px;
+right:12px;
+z-index:2000;
+width:290px;
+background:#fff;
+border:1px solid #dbe3ef;
+border-radius:13px;
+padding:15px;
+box-shadow:0 12px 35px #0002
+}
 
-.subject{background:#fff}
-.subject-box{max-width:700px;margin:auto;padding:28px 20px;text-align:center;background:#f8faff;border:2px solid #155eef;border-radius:18px}
-.subject-icon{font-size:42px}
-.subject-box h3{font-size:21px;margin:5px 0}
-.subject-box p{font-size:12px;color:#667085;margin-bottom:15px}
-.tags{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:17px}
-.tag{background:#eaf0fa;border-radius:20px;padding:5px 9px;font-size:9px;font-weight:800;color:#475467}
+.install-message.show{
+display:block
+}
 
-.journey{background:#172554;color:#fff}
-.journey .title p{color:#cbd5e1}
-.journey-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:850px;margin:auto}
-.journey-card{background:#fff;color:#172033;border-radius:15px;padding:23px}
-.journey-card h3{color:#155eef;font-size:16px;margin-bottom:7px}
-.journey-card p{font-size:11px;color:#667085;margin-bottom:8px}
-.journey-card ul{list-style:none}
-.journey-card li{font-size:11px;padding:5px 0;border-bottom:1px solid #edf0f4}
+.install-message strong{
+display:block;
+font-size:13px;
+margin-bottom:5px
+}
 
-.premium{background:#f0f5ff}
-.plan{max-width:520px;margin:auto;background:#fff;border:2px solid #155eef;border-radius:18px;padding:27px;text-align:center;box-shadow:0 12px 35px #155eef15}
-.badge{display:inline-block;background:#e7efff;color:#155eef;border-radius:20px;padding:5px 10px;font-size:9px;font-weight:900}
-.plan h3{font-size:21px;margin-top:6px}
-.price{color:#155eef;font-size:29px;font-weight:900;margin:7px 0 14px}
-.price small{font-size:10px;color:#667085;font-weight:normal}
-.plan ul{list-style:none;text-align:left;margin-bottom:18px}
-.plan li{font-size:11px;padding:6px 0;border-bottom:1px solid #edf0f4}
+.install-message p{
+font-size:11px;
+color:#667085;
+margin-bottom:10px
+}
 
-.cta{background:linear-gradient(135deg,#155eef,#172554);color:#fff;text-align:center;padding:50px 15px}
-.cta h2{font-size:27px;margin-bottom:7px}
-.cta p{font-size:12px;color:#dbeafe;margin-bottom:17px}
-.cta .primary{background:#fff;color:#155eef}
+.install-message button{
+border:0;
+background:#155eef;
+color:#fff;
+border-radius:7px;
+padding:7px 12px;
+font-size:10px;
+font-weight:800
+}
 
-footer{background:#0b1120;color:#fff;padding:30px 15px;text-align:center}
-.footer-logo{font-size:16px;font-weight:900}
-footer p{font-size:10px;color:#98a2b3;margin:5px 0 12px}
-.links{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
-.links a{font-size:10px;color:#c7cfdb}
+/* HERO */
 
-.install-message{display:none;position:fixed;top:72px;right:12px;z-index:2000;width:290px;background:#fff;border:1px solid #dbe3ef;border-radius:13px;padding:15px;box-shadow:0 12px 35px #0002}
-.install-message.show{display:block}
-.install-message strong{display:block;font-size:13px;margin-bottom:4px}
-.install-message p{font-size:11px;color:#667085;margin-bottom:9px}
-.install-message button{border:0;background:#155eef;color:#fff;border-radius:7px;padding:7px 12px;font-size:10px;font-weight:800}
+.hero{
+padding:45px 15px 55px;
+text-align:center;
+background:linear-gradient(135deg,#eef4ff,#fff,#f5f3ff)
+}
+
+.hero-inner{
+max-width:850px;
+margin:auto
+}
+
+.photo-wrap{
+position:relative;
+width:150px;
+height:150px;
+margin:0 auto 18px
+}
+
+.photo{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+border:5px solid #fff;
+box-shadow:0 0 0 3px #155eef22,0 12px 30px #0002
+}
+
+.live{
+position:absolute;
+right:-5px;
+bottom:8px;
+background:#fff;
+color:#12b76a;
+padding:5px 9px;
+border-radius:20px;
+font-size:9px;
+font-weight:900;
+box-shadow:0 3px 12px #0002
+}
+
+.dot{
+display:inline-block;
+width:7px;
+height:7px;
+border-radius:50%;
+background:#12b76a;
+margin-right:4px
+}
+
+.label{
+display:inline-block;
+padding:7px 13px;
+border-radius:30px;
+background:#e7efff;
+color:#155eef;
+font-size:10px;
+font-weight:900;
+margin-bottom:12px
+}
+
+.hero h1{
+font-size:42px;
+line-height:1.12;
+margin-bottom:12px
+}
+
+.hero h1 span{
+color:#155eef
+}
+
+.hero p{
+max-width:650px;
+margin:0 auto 20px;
+color:#667085;
+font-size:15px
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:9px;
+flex-wrap:wrap
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+min-height:42px;
+padding:0 18px;
+border-radius:9px;
+font-size:11px;
+font-weight:900
+}
+
+.primary{
+background:#155eef;
+color:#fff
+}
+
+.secondary{
+background:#fff;
+color:#155eef;
+border:1px solid #155eef
+}
+
+/* SECTIONS */
+
+.section{
+max-width:1100px;
+margin:auto;
+padding:50px 15px
+}
+
+.title{
+text-align:center;
+margin-bottom:28px
+}
+
+.title h2{
+font-size:28px;
+margin-bottom:6px
+}
+
+.title p{
+font-size:13px;
+color:#667085
+}
+
+/* DAILY */
+
+.daily{
+background:#fff
+}
+
+.daily-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px
+}
+
+.stat{
+background:#f8faff;
+border:1px solid #e2e8f0;
+border-radius:15px;
+padding:22px;
+text-align:center
+}
+
+.icon{
+font-size:28px;
+margin-bottom:5px
+}
+
+.number{
+font-size:29px;
+font-weight:900;
+color:#155eef
+}
+
+.stat h3{
+font-size:14px
+}
+
+.stat p{
+font-size:10px;
+color:#667085
+}
+
+/* ROUTINE */
+
+.routine{
+background:#f0f5ff
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px
+}
+
+.card{
+background:#fff;
+border:1px solid #e2e7ef;
+border-radius:15px;
+padding:23px;
+text-align:center
+}
+
+.card h3{
+font-size:15px;
+margin:6px 0
+}
+
+.card p{
+font-size:11px;
+color:#667085
+}
+
+/* SUBJECT */
+
+.subject{
+background:#fff
+}
+
+.subject-box{
+max-width:700px;
+margin:auto;
+padding:28px 20px;
+text-align:center;
+background:#f8faff;
+border:2px solid #155eef;
+border-radius:18px
+}
+
+.subject-icon{
+font-size:42px
+}
+
+.subject-box h3{
+font-size:21px;
+margin:5px 0
+}
+
+.subject-box p{
+font-size:12px;
+color:#667085;
+margin-bottom:15px
+}
+
+.tags{
+display:flex;
+justify-content:center;
+gap:6px;
+flex-wrap:wrap;
+margin-bottom:17px
+}
+
+.tag{
+background:#eaf0fa;
+border-radius:20px;
+padding:5px 9px;
+font-size:9px;
+font-weight:800;
+color:#475467
+}
+
+/* JOURNEY */
+
+.journey{
+background:#172554;
+color:#fff
+}
+
+.journey .title p{
+color:#cbd5e1
+}
+
+.journey-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+max-width:850px;
+margin:auto
+}
+
+.journey-card{
+background:#fff;
+color:#172033;
+border-radius:15px;
+padding:23px
+}
+
+.journey-card h3{
+color:#155eef;
+font-size:16px;
+margin-bottom:7px
+}
+
+.journey-card p{
+font-size:11px;
+color:#667085;
+margin-bottom:8px
+}
+
+.journey-card ul{
+list-style:none
+}
+
+.journey-card li{
+font-size:11px;
+padding:5px 0;
+border-bottom:1px solid #edf0f4
+}
+
+/* PREMIUM */
+
+.premium{
+background:#f0f5ff
+}
+
+.plan{
+max-width:520px;
+margin:auto;
+background:#fff;
+border:2px solid #155eef;
+border-radius:18px;
+padding:27px;
+text-align:center;
+box-shadow:0 12px 35px #155eef15
+}
+
+.badge{
+display:inline-block;
+background:#e7efff;
+color:#155eef;
+border-radius:20px;
+padding:5px 10px;
+font-size:9px;
+font-weight:900
+}
+
+.plan h3{
+font-size:21px;
+margin-top:6px
+}
+
+.price{
+color:#155eef;
+font-size:29px;
+font-weight:900;
+margin:7px 0 14px
+}
+
+.price small{
+font-size:10px;
+color:#667085;
+font-weight:normal
+}
+
+.plan ul{
+list-style:none;
+text-align:left;
+margin-bottom:18px
+}
+
+.plan li{
+font-size:11px;
+padding:6px 0;
+border-bottom:1px solid #edf0f4
+}
+
+/* CTA */
+
+.cta{
+background:linear-gradient(135deg,#155eef,#172554);
+color:#fff;
+text-align:center;
+padding:50px 15px
+}
+
+.cta h2{
+font-size:27px;
+margin-bottom:7px
+}
+
+.cta p{
+font-size:12px;
+color:#dbeafe;
+margin-bottom:17px
+}
+
+.cta .primary{
+background:#fff;
+color:#155eef
+}
+
+/* FOOTER */
+
+footer{
+background:#0b1120;
+color:#fff;
+padding:30px 15px;
+text-align:center
+}
+
+.footer-logo{
+font-size:16px;
+font-weight:900
+}
+
+footer p{
+font-size:10px;
+color:#98a2b3;
+margin:5px 0 12px
+}
+
+.links{
+display:flex;
+justify-content:center;
+gap:13px;
+flex-wrap:wrap
+}
+
+.links a{
+font-size:10px;
+color:#c7cfdb
+}
+
+/* MOBILE */
 
 @media(max-width:750px){
-.hero h1{font-size:34px}
-.daily-grid,.cards{grid-template-columns:1fr}
-.journey-grid{grid-template-columns:1fr}
+
+.hero h1{
+font-size:34px
+}
+
+.daily-grid,
+.cards{
+grid-template-columns:1fr
+}
+
+.journey-grid{
+grid-template-columns:1fr
+}
+
 }
 
 @media(max-width:500px){
-.nav{padding:9px 10px}
-.logo{font-size:16px}
-.nav-btn,.install-btn{height:34px;padding:0 8px;font-size:9px}
-.hero{padding:40px 13px 50px}
-.photo-wrap{width:150px;height:150px}
-.hero h1{font-size:30px}
-.hero p{font-size:13px}
-.section{padding:43px 13px}
-.title h2{font-size:24px}
+
+.nav{
+padding:9px 10px
+}
+
+.logo{
+font-size:16px
+}
+
+.nav-btn,
+.install-btn{
+height:34px;
+padding:0 8px;
+font-size:9px
+}
+
+.hero{
+padding:38px 13px 50px
+}
+
+.photo-wrap{
+width:135px;
+height:135px
+}
+
+.hero h1{
+font-size:30px
+}
+
+.hero p{
+font-size:13px
+}
+
+.section{
+padding:43px 13px
+}
+
+.title h2{
+font-size:24px
+}
+
+.install-message{
+top:68px;
+right:10px;
+width:calc(100% - 20px)
+}
+
 }
 </style>
 </head>
@@ -129,34 +605,73 @@ footer p{font-size:10px;color:#98a2b3;margin:5px 0 12px}
 <header>
 <div class="nav">
 
-<a href="index.html" class="logo">CreateLK AL</a>
+<a href="index.html" class="logo">
+CreateLK AL
+</a>
 
 <div class="nav-links">
-<a href="login.html" class="nav-btn">Login</a>
-<a href="register.html" class="nav-btn">Register</a>
-<button id="installBtn" class="install-btn" type="button">📲 Install</button>
-</div>
 
+<a href="login.html" class="nav-btn">
+Login
+</a>
+
+<a href="register.html" class="nav-btn">
+Register
+</a>
+
+<button id="installBtn" class="install-btn" type="button">
+📲 Install
+</button>
+
+</div>
 </div>
 </header>
 
+
+<!-- INSTALL MESSAGE -->
+
 <div id="installMessage" class="install-message">
-<strong id="installTitle">Install CreateLK AL</strong>
-<p id="installText">Install the app for quick access.</p>
-<button id="closeInstall" type="button">Close</button>
+
+<strong id="installTitle">
+Install CreateLK AL
+</strong>
+
+<p id="installText">
+Preparing installation...
+</p>
+
+<button id="closeInstall" type="button">
+Close
+</button>
+
 </div>
 
+
+<!-- HERO -->
+
 <section class="hero">
+
 <div class="hero-inner">
 
 <div class="photo-wrap">
+
 <img
+src="https://assets.createlk.com/9603.png"
+alt="CreateLK AL Biology"
 class="photo"
-src="https://assetsal.createlk.com/file_00000000697c82089443a75ed817e2a6.png"
-alt="CreateLK AL Biology">
+onerror="this.style.display='none'"
+>
+
+<div class="live">
+<span class="dot"></span>
+A/L BIOLOGY
 </div>
 
-<div class="label">🧬 G.C.E. A/L BIOLOGY</div>
+</div>
+
+<div class="label">
+🧬 G.C.E. A/L BIOLOGY
+</div>
 
 <h1>
 Build Biology<br>
@@ -169,93 +684,179 @@ Learn from mistakes, track your progress and prepare consistently for your A/L e
 </p>
 
 <div class="buttons">
-<a href="register.html" class="btn primary">Start Free Practice →</a>
-<a href="#premium" class="btn secondary">View Premium</a>
+
+<a href="register.html" class="btn primary">
+Start Free Practice →
+</a>
+
+<a href="#premium" class="btn secondary">
+View Premium
+</a>
+
 </div>
 
 </div>
+
 </section>
 
+
+<!-- DAILY -->
+
 <section class="daily">
+
 <div class="section">
 
 <div class="title">
+
 <h2>Your Daily Biology Goal</h2>
-<p>Small daily practice. Stronger preparation.</p>
+
+<p>
+Small daily practice. Stronger preparation.
+</p>
+
 </div>
 
 <div class="daily-grid">
 
 <div class="stat">
+
 <div class="icon">🎯</div>
+
 <div class="number">10</div>
+
 <h3>Questions / Day</h3>
-<p>Build a daily practice habit.</p>
+
+<p>
+Build a daily practice habit.
+</p>
+
 </div>
 
+
 <div class="stat">
+
 <div class="icon">🧬</div>
+
 <div class="number">500+</div>
+
 <h3>Biology MCQs</h3>
-<p>Practise across Biology topics.</p>
+
+<p>
+Practise across Biology topics.
+</p>
+
 </div>
+
 
 <div class="stat">
+
 <div class="icon">📈</div>
+
 <div class="number">2 Years</div>
+
 <h3>Long-Term Preparation</h3>
-<p>Grow confidence step by step.</p>
+
+<p>
+Grow confidence step by step.
+</p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- ROUTINE -->
+
 <section class="routine">
+
 <div class="section">
 
 <div class="title">
+
 <h2>Your Daily Routine</h2>
-<p>A simple habit for better Biology preparation.</p>
+
+<p>
+A simple habit for better Biology preparation.
+</p>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
+
 <div class="icon">🎯</div>
+
 <h3>Practise</h3>
-<p>Answer 10 Biology questions every day.</p>
+
+<p>
+Answer 10 Biology questions every day.
+</p>
+
 </div>
 
+
 <div class="card">
+
 <div class="icon">🧠</div>
+
 <h3>Learn</h3>
-<p>Review answers and understand your mistakes.</p>
+
+<p>
+Review answers and understand your mistakes.
+</p>
+
 </div>
+
 
 <div class="card">
+
 <div class="icon">📈</div>
+
 <h3>Improve</h3>
-<p>Track your progress and build confidence.</p>
+
+<p>
+Track your progress and build confidence.
+</p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- SUBJECT -->
+
 <section class="subject">
+
 <div class="section">
 
 <div class="title">
+
 <h2>Focused on A/L Biology</h2>
-<p>Everything is designed around Biology practice.</p>
+
+<p>
+Everything is designed around Biology practice.
+</p>
+
 </div>
 
 <div class="subject-box">
 
-<div class="subject-icon">🧬</div>
+<div class="subject-icon">
+🧬
+</div>
 
-<h3>G.C.E. A/L Biology</h3>
+<h3>
+G.C.E. A/L Biology
+</h3>
 
 <p>
 Practise by topic and difficulty, strengthen your understanding,
@@ -263,11 +864,13 @@ and gradually prepare for your examination.
 </p>
 
 <div class="tags">
+
 <span class="tag">Topic Practice</span>
 <span class="tag">Easy</span>
 <span class="tag">Medium</span>
 <span class="tag">Hard</span>
 <span class="tag">Exam Practice</span>
+
 </div>
 
 <a href="register.html" class="btn primary">
@@ -275,76 +878,120 @@ Start Biology Practice →
 </a>
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- JOURNEY -->
+
 <section class="journey">
+
 <div class="section">
 
 <div class="title">
+
 <h2>Prepare Step by Step</h2>
-<p>Start today and build your Biology confidence over time.</p>
+
+<p>
+Start today and build your Biology confidence over time.
+</p>
+
 </div>
 
 <div class="journey-grid">
 
 <div class="journey-card">
-<h3>📘 Build Your Foundation</h3>
+
+<h3>
+📘 Build Your Foundation
+</h3>
+
 <p>
 Practise topics regularly, review mistakes and strengthen areas where you need more work.
 </p>
 
 <ul>
+
 <li>✓ Daily Biology practice</li>
 <li>✓ Topic-based learning</li>
 <li>✓ Review mistakes</li>
 <li>✓ Identify weak areas</li>
+
 </ul>
+
 </div>
 
+
 <div class="journey-card">
-<h3>🎓 Strengthen Exam Preparation</h3>
+
+<h3>
+🎓 Strengthen Exam Preparation
+</h3>
+
 <p>
 Move toward mixed topics, harder questions, revision and exam-focused practice.
 </p>
 
 <ul>
+
 <li>✓ Mixed-topic practice</li>
 <li>✓ Higher difficulty</li>
 <li>✓ Regular revision</li>
 <li>✓ Exam-focused preparation</li>
+
 </ul>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- PREMIUM -->
+
 <section class="premium" id="premium">
+
 <div class="section">
 
 <div class="title">
+
 <h2>Premium Biology</h2>
-<p>More practice when you are ready to go further.</p>
+
+<p>
+More practice when you are ready to go further.
+</p>
+
 </div>
 
 <div class="plan">
 
-<div class="badge">PREMIUM</div>
+<div class="badge">
+PREMIUM
+</div>
 
-<h3>30-Day Premium</h3>
+<h3>
+30-Day Premium
+</h3>
 
 <div class="price">
-LKR 1,500 <small>/ 30 days</small>
+LKR 1,500
+<small>/ 30 days</small>
 </div>
 
 <ul>
+
 <li>✓ 500+ A/L Biology MCQs</li>
 <li>✓ AI-powered Biology practice</li>
 <li>✓ Topic-based questions</li>
 <li>✓ Easy, Medium & Hard levels</li>
 <li>✓ Progress tracking</li>
 <li>✓ Premium learning resources</li>
+
 </ul>
 
 <a href="premium.html" class="btn primary">
@@ -352,12 +999,19 @@ Get Premium →
 </a>
 
 </div>
+
 </div>
+
 </section>
+
+
+<!-- CTA -->
 
 <section class="cta">
 
-<h2>Start Your Biology Journey</h2>
+<h2>
+Start Your Biology Journey
+</h2>
 
 <p>
 Begin with just 10 questions a day.
@@ -370,24 +1024,36 @@ Create Your Free Account →
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
 
-<div class="footer-logo">CreateLK AL</div>
+<div class="footer-logo">
+CreateLK AL
+</div>
 
-<p>A/L Biology MCQ & Exam Practice</p>
+<p>
+A/L Biology MCQ & Exam Practice
+</p>
 
 <div class="links">
+
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 <a href="terms.html">Terms</a>
 <a href="privacy.html">Privacy</a>
 <a href="refund.html">Refund</a>
 <a href="cancellation.html">Cancellation</a>
+
 </div>
 
-<p>© 2026 CreateLK AL. All rights reserved.</p>
+<p>
+© 2026 CreateLK AL. All rights reserved.
+</p>
 
 </footer>
+
 
 <script>
 
@@ -401,63 +1067,70 @@ const $=id=>document.getElementById(id);
 
 const installBtn=$("installBtn");
 const message=$("installMessage");
-const title=$("installTitle");
-const text=$("installText");
 
 const installed=()=>{
-return matchMedia("(display-mode:standalone)").matches ||
+
+return matchMedia("(display-mode: standalone)").matches ||
 navigator.standalone===true;
+
 };
 
-const ios=()=>{
-return /iphone|ipad|ipod/i.test(navigator.userAgent);
-};
+const ios=()=>/iphone|ipad|ipod/i.test(navigator.userAgent);
 
-function showInstall(t,d){
-title.textContent=t;
-text.textContent=d;
+function showInstall(title,text){
+
+$("installTitle").textContent=title;
+$("installText").textContent=text;
+
 message.classList.add("show");
 
-clearTimeout(window.installTimer);
-
-window.installTimer=setTimeout(()=>{
-message.classList.remove("show");
-},6000);
 }
 
+function hideInstall(){
+
+message.classList.remove("show");
+
+}
+
+
 /*
-Keep the event alive.
-Do NOT call prompt() until the user
-actually presses the Install button.
+IMPORTANT:
+The browser only fires beforeinstallprompt
+when the website satisfies the PWA requirements.
 */
 
-addEventListener("beforeinstallprompt",e=>{
+window.addEventListener("beforeinstallprompt",event=>{
 
-e.preventDefault();
+event.preventDefault();
 
-deferredPrompt=e;
+deferredPrompt=event;
 
-console.log("PWA install prompt ready");
+installBtn.textContent="📲 Install";
 
 });
 
-installBtn.onclick=async()=>{
+
+installBtn.addEventListener("click",async()=>{
 
 if(installed()){
 
 showInstall(
 "Already installed",
-"CreateLK AL is already installed."
+"CreateLK AL is already installed on this device."
 );
 
 return;
+
 }
+
+
+/* Android / Chrome PWA installation */
 
 if(deferredPrompt){
 
 try{
 
-deferredPrompt.prompt();
+await deferredPrompt.prompt();
 
 const result=
 await deferredPrompt.userChoice;
@@ -466,7 +1139,7 @@ if(result.outcome==="accepted"){
 
 showInstall(
 "CreateLK AL installed",
-"You can now open it from your home screen."
+"You can now open CreateLK AL from your home screen."
 );
 
 }
@@ -479,41 +1152,49 @@ console.log(error);
 
 showInstall(
 "Installation unavailable",
-"Please try installing CreateLK AL again."
+"Please try the Install button again."
 );
 
 }
 
 return;
+
 }
+
+
+/* iPhone / iPad */
 
 if(ios()){
 
 showInstall(
 "Install CreateLK AL",
-"Tap the Share button in Safari, then choose Add to Home Screen."
+"Tap Share in Safari, then choose Add to Home Screen."
 );
 
 return;
+
 }
 
+
 /*
-This means the browser has not supplied
-the native install prompt yet.
+If beforeinstallprompt has not appeared,
+do NOT pretend that installation is available.
 */
 
 showInstall(
-"Install CreateLK AL",
-"Install is not available yet. Make sure the site is using HTTPS and that manifest.json and sw.js are available."
+"Install not available yet",
+"Make sure createlk.com is using HTTPS and that manifest.json and sw.js are available."
 );
 
-};
+});
 
-$("closeInstall").onclick=()=>{
-message.classList.remove("show");
-};
 
-addEventListener("appinstalled",()=>{
+$("closeInstall").addEventListener("click",hideInstall);
+
+
+/* Installed event */
+
+window.addEventListener("appinstalled",()=>{
 
 deferredPrompt=null;
 
@@ -524,27 +1205,34 @@ showInstall(
 
 });
 
+
 /* =========================
    SERVICE WORKER
 ========================= */
 
 if("serviceWorker" in navigator){
 
-addEventListener("load",()=>{
+window.addEventListener("load",()=>{
 
-navigator.serviceWorker
-.register("/sw.js",{scope:"/"})
-.then(reg=>{
+navigator.serviceWorker.register(
+"/sw.js",
+{scope:"/"}
+)
+.then(registration=>{
+
 console.log(
-"CreateLK AL service worker registered",
-reg.scope
+"Service Worker registered:",
+registration.scope
 );
+
 })
 .catch(error=>{
-console.error(
-"Service worker registration failed:",
+
+console.log(
+"Service Worker registration failed:",
 error
 );
+
 });
 
 });
