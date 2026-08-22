@@ -1,22 +1,26 @@
 {
-  "name": "CreateLK AL | A/L Biology",
+  "id": "/",
+  "name": "CreateLK AL - A/L Biology Practice",
   "short_name": "CreateLK AL",
   "description": "A/L Biology MCQ practice for Sri Lankan students.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#f7f9fc",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f7fb",
   "theme_color": "#155eef",
+  "lang": "en",
+  "dir": "ltr",
+
   "icons": [
     {
-      "src": "https://assetsal.createlk.com/file_00000000697c82089443a75ed817e2a6.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "https://assetsal.createlk.com/file_00000000697c82089443a75ed817e2a6.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
