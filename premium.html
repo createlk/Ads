@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>CreateLK AL | Premium Biology</title>
+<meta name="description"
+content="CreateLK AL Premium A/L Biology learning membership.">
+
+<meta name="theme-color" content="#155eef">
+<link rel="manifest" href="/manifest.json">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.5;
+}
+
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav{
+  max-width:900px;
+  height:62px;
+  margin:auto;
+  padding:0 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:#155eef;
+  font-size:18px;
+  font-weight:900;
+}
+
+.back{
+  color:#667085;
+  font-size:11px;
+  font-weight:800;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:25px 15px 50px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e7efff;
+  color:#155eef;
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+h1{
+  font-size:29px;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  color:#667085;
+  font-size:12px;
+  margin-bottom:22px;
+}
+
+/* PLAN */
+
+.plan{
+  background:#fff;
+  border:2px solid #155eef;
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 12px 35px #155eef12;
+  margin-bottom:18px;
+}
+
+.plan-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.plan h2{
+  font-size:20px;
+}
+
+.price{
+  color:#155eef;
+  font-size:27px;
+  font-weight:900;
+}
+
+.price small{
+  color:#667085;
+  font-size:10px;
+  font-weight:normal;
+}
+
+.features{
+  list-style:none;
+  margin:18px 0;
+  display:grid;
+  gap:7px;
+}
+
+.features li{
+  font-size:12px;
+  color:#344054;
+}
+
+/* PAYMENT */
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #e1e6ef;
+  border-radius:15px;
+  padding:20px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.card p{
+  color:#667085;
+  font-size:11px;
+  margin-bottom:14px;
+}
+
+.btn{
+  width:100%;
+  min-height:42px;
+  border:0;
+  border-radius:9px;
+  background:#155eef;
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.btn.secondary{
+  background:#fff;
+  color:#155eef;
+  border:1px solid #155eef;
+}
+
+/* BANK */
+
+.bank{
+  background:#f8faff;
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:13px;
+}
+
+.bank-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px solid #e5eaf1;
+  font-size:10px;
+}
+
+.bank-row:last-child{
+  border-bottom:0;
+}
+
+.bank-row span{
+  text-align:right;
+}
+
+/* UPLOAD */
+
+.upload{
+  margin-top:16px;
+  display:none;
+}
+
+.upload.show{
+  display:block;
+}
+
+.upload label{
+  display:block;
+  font-size:10px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+input[type=file]{
+  width:100%;
+  padding:9px;
+  border:1px solid #d7dce5;
+  border-radius:8px;
+  background:#fff;
+  font-size:10px;
+  margin-bottom:10px;
+}
+
+input[type=text]{
+  width:100%;
+  height:40px;
+  border:1px solid #d7dce5;
+  border-radius:8px;
+  padding:0 10px;
+  font-size:11px;
+  margin-bottom:10px;
+}
+
+.note{
+  margin-top:12px;
+  color:#667085;
+  font-size:10px;
+}
+
+/* STATUS */
+
+.status{
+  display:none;
+  margin-top:16px;
+  padding:13px;
+  border-radius:10px;
+  font-size:11px;
+}
+
+.status.show{
+  display:block;
+}
+
+.status.success{
+  background:#ecfdf3;
+  color:#087443;
+  border:1px solid #abefc6;
+}
+
+.status.error{
+  background:#fef3f2;
+  color:#b42318;
+  border:1px solid #fecdca;
+}
+
+.status.pending{
+  background:#fffaeb;
+  color:#93370d;
+  border:1px solid #fedf89;
+}
+
+/* LEGAL */
+
+.legal{
+  margin-top:18px;
+  text-align:center;
+  color:#667085;
+  font-size:10px;
+}
+
+.legal a{
+  color:#155eef;
+  font-weight:700;
+}
+
+footer{
+  background:#0b1120;
+  color:#fff;
+  padding:25px 15px;
+  text-align:center;
+  font-size:10px;
+}
+
+footer p{
+  color:#98a2b3;
+  margin-top:5px;
+}
+
+@media(max-width:650px){
+
+  .container{
+    padding:22px 13px 40px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .plan-top{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  h1{
+    font-size:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<a href="index.html" class="logo">
+CreateLK AL
+</a>
+
+<a href="dashboard.html" class="back">
+← Dashboard
+</a>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+<div class="badge">
+🧬 A/L BIOLOGY
+</div>
+
+<h1>
+Premium Biology
+</h1>
+
+<p class="subtitle">
+Get extended Biology practice and AI-powered learning.
+</p>
+
+
+<!-- PLAN -->
+
+<div class="plan">
+
+<div class="plan-top">
+
+<h2>
+Premium Membership
+</h2>
+
+<div class="price">
+LKR 1,500
+<small>/ 30 days</small>
+</div>
+
+</div>
+
+<ul class="features">
+
+<li>✓ Extended A/L Biology MCQs</li>
+<li>✓ AI-powered Biology practice</li>
+<li>✓ Topic-based questions</li>
+<li>✓ Easy, Medium & Hard levels</li>
+<li>✓ Progress tracking</li>
+<li>✓ Premium learning resources</li>
+
+</ul>
+
+</div>
+
+
+<!-- PAYMENT METHODS -->
+
+<div class="grid">
+
+
+<!-- PAYHERE -->
+
+<div class="card">
+
+<h3>
+💳 PayHere
+</h3>
+
+<p>
+Pay securely online using PayHere.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="payHere()">
+
+Pay LKR 1,500 with PayHere →
+
+</button>
+
+<div class="note">
+Your payment is processed through the PayHere
+payment gateway.
+</div>
+
+</div>
+
+
+<!-- BANK -->
+
+<div class="card">
+
+<h3>
+🏦 Bank Transfer
+</h3>
+
+<p>
+Transfer LKR 1,500 and submit your payment proof.
+</p>
+
+<div class="bank">
+
+<div class="bank-row">
+<strong>Bank</strong>
+<span>People's Bank</span>
+</div>
+
+<div class="bank-row">
+<strong>Branch</strong>
+<span>Udapussellawa</span>
+</div>
+
+<div class="bank-row">
+<strong>Account</strong>
+<span>292200280023178</span>
+</div>
+
+<div class="bank-row">
+<strong>Name</strong>
+<span>Thinarathnam Saththiyanadan</span>
+</div>
+
+</div>
+
+<button
+class="btn secondary"
+type="button"
+onclick="showUpload()">
+
+Submit Bank Payment →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- BANK UPLOAD -->
+
+<div
+class="card upload"
+id="uploadBox">
+
+<h3>
+📤 Payment Proof
+</h3>
+
+<p>
+Upload your bank payment slip for manual verification.
+</p>
+
+
+<label>
+Payment Reference
+</label>
+
+<input
+type="text"
+id="reference"
+placeholder="Enter transaction/reference number">
+
+
+<label>
+Payment Slip
+</label>
+
+<input
+type="file"
+id="slip"
+accept="image/*,.pdf">
+
+
+<button
+class="btn"
+type="button"
+onclick="submitPayment()">
+
+Submit Payment
+
+</button>
+
+</div>
+
+
+<!-- STATUS -->
+
+<div
+id="status"
+class="status">
+</div>
+
+
+<!-- LEGAL -->
+
+<div class="legal">
+
+By making a payment, you agree to our
+
+<a href="terms.html">
+Terms
+</a>
+·
+
+<a href="privacy.html">
+Privacy
+</a>
+·
+
+<a href="refund.html">
+Refund
+</a>
+·
+
+<a href="cancellation.html">
+Cancellation
+</a>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<strong>
+CreateLK AL
+</strong>
+
+<p>
+A/L Biology MCQ & Exam Practice
+</p>
+
+<p>
+© 2026 CreateLK AL. All rights reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   CONFIG
+========================= */
+
+const PAYMENT_API =
+"https://cl-al-mcq.createlk.workers.dev/";
+
+
+/* =========================
+   PAYHERE
+========================= */
+
+function payHere(){
+
+  /*
+   PayHere checkout should be connected
+   to your separate PayHere Checkout Worker.
+  */
+
+  window.location.href =
+    "payhere.html";
+
+}
+
+
+/* =========================
+   SHOW UPLOAD
+========================= */
+
+function showUpload(){
+
+  const box =
+    document.getElementById(
+      "uploadBox"
+    );
+
+  box.classList.add("show");
+
+  box.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+
+/* =========================
+   SUBMIT PAYMENT
+========================= */
+
+async function submitPayment(){
+
+  const reference =
+    document.getElementById(
+      "reference"
+    ).value.trim();
+
+  const file =
+    document.getElementById(
+      "slip"
+    ).files[0];
+
+  const status =
+    document.getElementById(
+      "status"
+    );
+
+
+  if(!reference){
+
+    showStatus(
+      "Please enter your payment reference.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(!file){
+
+    showStatus(
+      "Please upload your payment slip.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(file.size > 5 * 1024 * 1024){
+
+    showStatus(
+      "Payment slip must be 5 MB or smaller.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  showStatus(
+    "Submitting payment...",
+    "pending"
+  );
+
+
+  /*
+   This sends the payment information
+   to your Worker.
+
+   Your Worker can later upload the
+   actual file to R2 and create the
+   payment record in D1.
+  */
+
+
+  try{
+
+    const student =
+      JSON.parse(
+        localStorage.getItem(
+          "createlk_student"
+        ) || "null"
+      );
+
+
+    if(!student){
+
+      showStatus(
+        "Please login before submitting payment.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    const form =
+      new FormData();
+
+
+    form.append(
+      "uid",
+      student.id || ""
+    );
+
+    form.append(
+      "amount",
+      "1500"
+    );
+
+    form.append(
+      "method",
+      "BANK"
+    );
+
+    form.append(
+      "ref",
+      reference
+    );
+
+    form.append(
+      "slip",
+      file
+    );
+
+
+    const response =
+      await fetch(
+        PAYMENT_API + "payment",
+        {
+          method:"POST",
+          body:form
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if(!response.ok || !data.success){
+
+      throw new Error(
+        data.error ||
+        "Payment submission failed."
+      );
+
+    }
+
+
+    showStatus(
+      "✅ Payment submitted successfully. Your Premium membership is pending admin approval.",
+      "success"
+    );
+
+
+    document.getElementById(
+      "reference"
+    ).value = "";
+
+    document.getElementById(
+      "slip"
+    ).value = "";
+
+
+  }catch(error){
+
+    showStatus(
+      "❌ " +
+      error.message,
+      "error"
+    );
+
+  }
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+function showStatus(
+  message,
+  type
+){
+
+  const status =
+    document.getElementById(
+      "status"
+    );
+
+  status.textContent =
+    message;
+
+  status.className =
+    "status show " +
+    type;
+
+}
+
+</script>
+
+</body>
+</html>
