@@ -1,19 +1,15 @@
 const CACHE_NAME = "createlk-al-v1";
 
-const FILES = [
+const APP_FILES = [
   "/",
   "/index.html",
-  "/manifest.json",
-  "/login.html",
-  "/register.html",
-  "/premium.html",
-  "/payment.html"
+  "/manifest.json"
 ];
 
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(FILES))
+      .then(cache => cache.addAll(APP_FILES))
       .then(() => self.skipWaiting())
   );
 });
@@ -31,13 +27,11 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-
   if (event.request.method !== "GET") return;
 
   event.respondWith(
     fetch(event.request)
       .then(response => {
-
         const copy = response.clone();
 
         caches.open(CACHE_NAME).then(cache => {
@@ -46,9 +40,6 @@ self.addEventListener("fetch", event => {
 
         return response;
       })
-      .catch(() => {
-        return caches.match(event.request);
-      })
+      .catch(() => caches.match(event.request))
   );
-
 });
