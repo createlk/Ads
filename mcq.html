@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>CreateLK AL | Biology MCQ Practice</title>
+<meta name="description"
+content="CreateLK AL A/L Biology MCQ practice with AI-powered questions.">
+
 <meta name="theme-color" content="#155eef">
 <link rel="manifest" href="/manifest.json">
 
@@ -120,6 +123,36 @@ select{
   padding:0 16px;
   font-size:11px;
   font-weight:900;
+  cursor:pointer;
+}
+
+/* PROGRESS */
+
+.progress-wrap{
+  margin-bottom:15px;
+  display:none;
+}
+
+.progress-line{
+  height:7px;
+  background:#e9edf3;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  width:0;
+  height:100%;
+  background:#155eef;
+  transition:.3s;
+}
+
+.progress-info{
+  display:flex;
+  justify-content:space-between;
+  margin-top:5px;
+  color:#667085;
+  font-size:9px;
 }
 
 /* QUESTION */
@@ -178,7 +211,7 @@ select{
   text-align:left;
   font-size:12px;
   color:#172033;
-  transition:.15s;
+  cursor:pointer;
 }
 
 .option:hover{
@@ -238,9 +271,10 @@ select{
   color:#fff;
   font-size:11px;
   font-weight:900;
+  cursor:pointer;
 }
 
-/* EMPTY */
+/* MESSAGE */
 
 .message{
   background:#fff;
@@ -264,33 +298,6 @@ select{
 
 @keyframes spin{
   to{transform:rotate(360deg)}
-}
-
-.progress-wrap{
-  margin-bottom:15px;
-  display:none;
-}
-
-.progress-line{
-  height:7px;
-  background:#e9edf3;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.progress-bar{
-  width:0;
-  height:100%;
-  background:#155eef;
-  transition:.3s;
-}
-
-.progress-info{
-  display:flex;
-  justify-content:space-between;
-  margin-top:5px;
-  color:#667085;
-  font-size:9px;
 }
 
 @media(max-width:650px){
@@ -325,222 +332,229 @@ select{
 <body>
 
 <header>
-  <div class="nav">
 
-    <a href="dashboard.html" class="logo">
-      CreateLK AL
-    </a>
+<div class="nav">
 
-    <a href="dashboard.html" class="back">
-      ← Dashboard
-    </a>
+<a href="dashboard.html" class="logo">
+CreateLK AL
+</a>
 
-  </div>
+<a href="dashboard.html" class="back">
+← Dashboard
+</a>
+
+</div>
+
 </header>
 
 
 <main class="container">
 
-  <div class="badge">
-    🧬 G.C.E. A/L BIOLOGY
-  </div>
+<div class="badge">
+🧬 G.C.E. A/L BIOLOGY
+</div>
 
-  <h1>Biology MCQ Practice</h1>
+<h1>
+Biology MCQ Practice
+</h1>
 
-  <p class="subtitle">
-    Practise A/L Biology questions by topic and difficulty.
-  </p>
+<p class="subtitle">
+Practise A/L Biology questions by topic and difficulty.
+</p>
 
 
-  <!-- CONTROLS -->
+<!-- CONTROLS -->
 
-  <div class="controls">
+<div class="controls">
 
-    <div class="field">
+<div class="field">
 
-      <label>TOPIC</label>
+<label>TOPIC</label>
 
-      <select id="topic">
+<select id="topic">
 
-        <option value="Cell Biology">
-          Cell Biology
-        </option>
+<option value="Cell Biology">
+Cell Biology
+</option>
 
-        <option value="Biological Molecules">
-          Biological Molecules
-        </option>
+<option value="Biological Molecules">
+Biological Molecules
+</option>
 
-        <option value="Enzymes">
-          Enzymes
-        </option>
+<option value="Enzymes">
+Enzymes
+</option>
 
-        <option value="Genetics">
-          Genetics
-        </option>
+<option value="Genetics">
+Genetics
+</option>
 
-        <option value="Evolution">
-          Evolution
-        </option>
+<option value="Evolution">
+Evolution
+</option>
 
-        <option value="Ecology">
-          Ecology
-        </option>
+<option value="Ecology">
+Ecology
+</option>
 
-        <option value="Plant Biology">
-          Plant Biology
-        </option>
+<option value="Plant Biology">
+Plant Biology
+</option>
 
-        <option value="Animal Biology">
-          Animal Biology
-        </option>
+<option value="Animal Biology">
+Animal Biology
+</option>
 
-        <option value="Human Biology">
-          Human Biology
-        </option>
+<option value="Human Biology">
+Human Biology
+</option>
 
-      </select>
+</select>
 
-    </div>
+</div>
 
 
-    <div class="field">
+<div class="field">
 
-      <label>DIFFICULTY</label>
+<label>DIFFICULTY</label>
 
-      <select id="level">
+<select id="level">
 
-        <option value="EASY">
-          Easy
-        </option>
+<option value="EASY">
+Easy
+</option>
 
-        <option value="MEDIUM" selected>
-          Medium
-        </option>
+<option value="MEDIUM" selected>
+Medium
+</option>
 
-        <option value="HARD">
-          Hard
-        </option>
+<option value="HARD">
+Hard
+</option>
 
-      </select>
+</select>
 
-    </div>
+</div>
 
 
-    <button
-      class="start-btn"
-      onclick="loadQuestion()">
+<button
+id="generateBtn"
+class="start-btn"
+type="button"
+onclick="loadQuestion()">
 
-      Generate MCQ
+Generate MCQ
 
-    </button>
+</button>
 
-  </div>
+</div>
 
 
-  <!-- PROGRESS -->
+<!-- PROGRESS -->
 
-  <div
-    class="progress-wrap"
-    id="progressWrap">
+<div
+class="progress-wrap"
+id="progressWrap">
 
-    <div class="progress-line">
+<div class="progress-line">
 
-      <div
-        class="progress-bar"
-        id="progressBar">
-      </div>
+<div
+class="progress-bar"
+id="progressBar">
+</div>
 
-    </div>
+</div>
 
-    <div class="progress-info">
+<div class="progress-info">
 
-      <span id="questionNumber">
-        Question 1
-      </span>
+<span id="questionNumber">
+Question 0
+</span>
 
-      <span id="scoreInfo">
-        Score: 0
-      </span>
+<span id="scoreInfo">
+Score: 0
+</span>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 
-  <!-- MESSAGE -->
+<!-- MESSAGE -->
 
-  <div
-    class="message"
-    id="message">
+<div
+class="message"
+id="message">
 
-    Select a topic and difficulty,
-    then tap <b>Generate MCQ</b>.
+Select a topic and difficulty,
+then tap <b>Generate MCQ</b>.
 
-  </div>
+</div>
 
 
-  <!-- QUESTION -->
+<!-- QUESTION -->
 
-  <div
-    class="question-card"
-    id="questionCard">
+<div
+class="question-card"
+id="questionCard">
 
-    <div class="question-top">
+<div class="question-top">
 
-      <span
-        class="topic"
-        id="questionTopic">
-        Biology
-      </span>
+<span
+class="topic"
+id="questionTopic">
+Biology
+</span>
 
-      <span
-        class="level"
-        id="questionLevel">
-        MEDIUM
-      </span>
+<span
+class="level"
+id="questionLevel">
+MEDIUM
+</span>
 
-    </div>
+</div>
 
 
-    <div
-      class="question"
-      id="questionText">
-    </div>
+<div
+class="question"
+id="questionText">
+</div>
 
 
-    <div
-      class="options"
-      id="options">
-    </div>
+<div
+class="options"
+id="options">
+</div>
 
 
-    <div
-      class="result"
-      id="result">
+<div
+class="result"
+id="result">
 
-      <div
-        class="result-title"
-        id="resultTitle">
-      </div>
+<div
+class="result-title"
+id="resultTitle">
+</div>
 
-      <div
-        class="explanation"
-        id="explanation">
-      </div>
+<div
+class="explanation"
+id="explanation">
+</div>
 
-    </div>
+</div>
 
 
-    <button
-      class="next"
-      id="nextBtn"
-      onclick="loadQuestion()">
+<button
+class="next"
+id="nextBtn"
+type="button"
+onclick="loadQuestion()">
 
-      Next Biology Question →
+Next Biology Question →
 
-    </button>
+</button>
 
-  </div>
+</div>
 
 </main>
 
@@ -551,6 +565,8 @@ const API =
 "https://cl-al-mcq.createlk.workers.dev/";
 
 let currentAnswer = "";
+let currentExplanation = "";
+
 let answered = false;
 let questionNumber = 0;
 let score = 0;
@@ -586,18 +602,35 @@ async function loadQuestion(){
   const next =
     document.getElementById("nextBtn");
 
-  message.style.display="block";
+  const generate =
+    document.getElementById("generateBtn");
+
+
+  answered = false;
+
+  currentAnswer = "";
+  currentExplanation = "";
+
+
+  message.style.display = "block";
 
   message.innerHTML =
-    '<div class="loader"></div>Generating Biology MCQ...';
+    '<div class="loader"></div>' +
+    'Generating Biology MCQ...';
 
-  card.style.display="none";
-  progress.style.display="none";
 
-  result.style.display="none";
-  next.style.display="none";
+  card.style.display = "none";
 
-  answered=false;
+  result.style.display = "none";
+
+  next.style.display = "none";
+
+  progress.style.display = "none";
+
+  generate.disabled = true;
+
+  generate.textContent = "Generating...";
+
 
   try{
 
@@ -624,28 +657,54 @@ async function loadQuestion(){
       await response.json();
 
 
-    if(!response.ok || !data.success){
+    if(
+      !response.ok ||
+      !data.success
+    ){
 
       throw new Error(
         data.error ||
-        "Unable to generate question"
+        "Unable to generate Biology question."
       );
 
     }
 
 
+    /* FIXED ANSWER */
+
     currentAnswer =
-      String(data.answer)
+      String(data.answer || "")
       .trim()
       .toUpperCase();
 
 
+    /* EXPLANATION */
+
+    currentExplanation =
+      String(data.explanation || "")
+      .trim();
+
+
+    if(
+      !["A","B","C","D"]
+      .includes(currentAnswer)
+    ){
+
+      throw new Error(
+        "AI returned an invalid answer."
+      );
+
+    }
+
+
     questionNumber++;
+
 
     document.getElementById(
       "questionNumber"
     ).textContent =
       "Question " + questionNumber;
+
 
     document.getElementById(
       "scoreInfo"
@@ -668,10 +727,10 @@ async function loadQuestion(){
     document.getElementById(
       "questionText"
     ).textContent =
-      data.question;
+      data.question || "";
 
 
-    options.innerHTML="";
+    options.innerHTML = "";
 
 
     const choices =
@@ -685,46 +744,65 @@ async function loadQuestion(){
       };
 
 
-    ["A","B","C","D"].forEach(letter=>{
+    ["A","B","C","D"].forEach(
+      letter => {
 
-      const button =
-        document.createElement("button");
+        const button =
+          document.createElement("button");
 
-      button.className="option";
+        button.type = "button";
 
-      button.innerHTML =
-        "<b>"+letter+".</b> " +
-        escapeHtml(
-          choices[letter] || ""
+        button.className = "option";
+
+
+        const label =
+          document.createElement("b");
+
+        label.textContent =
+          letter + ". ";
+
+
+        button.appendChild(label);
+
+        button.appendChild(
+          document.createTextNode(
+            choices[letter] || ""
+          )
         );
 
-      button.onclick =
-        ()=>checkAnswer(
-          letter,
-          button,
-          choices
-        );
 
-      options.appendChild(button);
+        button.onclick =
+          function(){
 
-    });
+            checkAnswer(
+              letter,
+              button
+            );
+
+          };
 
 
-    message.style.display="none";
+        options.appendChild(button);
 
-    card.style.display="block";
+      }
+    );
 
-    progress.style.display="block";
+
+    message.style.display = "none";
+
+    card.style.display = "block";
+
+    progress.style.display = "block";
+
 
     document.getElementById(
       "progressBar"
-    ).style.width =
-      "100%";
+    ).style.width = "100%";
 
 
   }catch(error){
 
-    message.style.display="block";
+    message.style.display = "block";
 
     message.innerHTML =
       "❌ " +
@@ -735,6 +813,12 @@ async function loadQuestion(){
 
   }
 
+
+  generate.disabled = false;
+
+  generate.textContent =
+    "Generate MCQ";
+
 }
 
 
@@ -744,13 +828,14 @@ async function loadQuestion(){
 
 function checkAnswer(
   selected,
-  selectedButton,
-  choices
+  selectedButton
 ){
 
-  if(answered) return;
+  if(answered){
+    return;
+  }
 
-  answered=true;
+  answered = true;
 
 
   const all =
@@ -758,12 +843,21 @@ function checkAnswer(
       ".option"
     );
 
-  all.forEach(button=>{
-    button.disabled=true;
-  });
+
+  all.forEach(
+    button => {
+
+      button.disabled = true;
+
+    }
+  );
 
 
-  if(selected === currentAnswer){
+  const isCorrect =
+    selected === currentAnswer;
+
+
+  if(isCorrect){
 
     selectedButton.classList.add(
       "correct"
@@ -782,22 +876,31 @@ function checkAnswer(
       "wrong"
     );
 
-    all.forEach(button=>{
 
-      const letter =
-        button.textContent
-        .trim()
-        .charAt(0);
+    all.forEach(
+      button => {
 
-      if(letter === currentAnswer){
+        const text =
+          button.textContent
+          .trim();
 
-        button.classList.add(
-          "correct"
-        );
+        const letter =
+          text.charAt(0);
+
+
+        if(
+          letter === currentAnswer
+        ){
+
+          button.classList.add(
+            "correct"
+          );
+
+        }
 
       }
+    );
 
-    });
 
     document.getElementById(
       "resultTitle"
@@ -816,29 +919,27 @@ function checkAnswer(
   document.getElementById(
     "explanation"
   ).textContent =
-    window.currentExplanation ||
+    currentExplanation ||
     "Review the correct answer and continue practising.";
 
 
   document.getElementById(
     "result"
-  ).style.display="block";
+  ).style.display = "block";
 
 
   document.getElementById(
     "nextBtn"
-  ).style.display="block";
+  ).style.display = "block";
 
 
-  saveProgress(
-    selected === currentAnswer
-  );
+  saveProgress(isCorrect);
 
 }
 
 
 /* =========================
-   SAVE LOCAL PROGRESS
+   LOCAL PROGRESS
 ========================= */
 
 function saveProgress(correct){
@@ -850,6 +951,7 @@ function saveProgress(correct){
       ) || 0
     );
 
+
   let correctTotal =
     Number(
       localStorage.getItem(
@@ -857,16 +959,20 @@ function saveProgress(correct){
       ) || 0
     );
 
+
   total++;
+
 
   if(correct){
     correctTotal++;
   }
 
+
   localStorage.setItem(
     "biology_questions",
     total
   );
+
 
   localStorage.setItem(
     "biology_correct",
@@ -902,16 +1008,19 @@ if(
 
   window.addEventListener(
     "load",
-    ()=>{
+    function(){
 
       navigator.serviceWorker
         .register("/sw.js")
         .catch(
-          error =>
-          console.log(
-            "SW:",
-            error
-          )
+          function(error){
+
+            console.log(
+              "Service Worker:",
+              error
+            );
+
+          }
         );
 
     }
