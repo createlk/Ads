@@ -6,9 +6,7 @@
 
 <title>CreateLK AL | A/L Biology Practice</title>
 
-<meta name="description"
-content="CreateLK AL helps Sri Lankan A/L Biology students practise 10 questions daily, learn from mistakes and build exam confidence.">
-
+<meta name="description" content="CreateLK AL helps Sri Lankan A/L Biology students practise 10 questions daily, learn from mistakes and build exam confidence.">
 <meta name="theme-color" content="#155eef">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -75,20 +73,65 @@ align-items:center;
 justify-content:center
 }
 
-.install-btn{
-background:#172554
+.install-btn{background:#172554}
+
+/* INSTALL */
+
+.install-message{
+display:none;
+position:fixed;
+top:72px;
+right:12px;
+z-index:2000;
+width:300px;
+background:#fff;
+border:1px solid #dbe3ef;
+border-radius:14px;
+padding:16px;
+box-shadow:0 15px 40px #0002
 }
 
+.install-message.show{display:block}
+
+.install-message strong{
+display:block;
+font-size:14px;
+margin-bottom:5px
+}
+
+.install-message p{
+font-size:11px;
+color:#667085;
+margin-bottom:11px
+}
+
+.install-message button{
+border:0;
+background:#155eef;
+color:#fff;
+border-radius:7px;
+padding:7px 13px;
+font-size:10px;
+font-weight:800
+}
+
+/* HERO */
+
 .hero{
-padding:55px 15px 60px;
-text-align:center;
+padding:48px 15px 58px;
 background:linear-gradient(135deg,#eef4ff,#fff,#f5f3ff)
 }
 
 .hero-inner{
-max-width:850px;
-margin:auto
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:35px
 }
+
+.hero-content{text-align:left}
 
 .label{
 display:inline-block;
@@ -103,24 +146,21 @@ margin-bottom:12px
 
 .hero h1{
 font-size:42px;
-line-height:1.12;
-margin-bottom:12px
+line-height:1.1;
+margin-bottom:13px
 }
 
-.hero h1 span{
-color:#155eef
-}
+.hero h1 span{color:#155eef}
 
 .hero p{
-max-width:650px;
-margin:0 auto 20px;
+max-width:580px;
 color:#667085;
-font-size:15px
+font-size:15px;
+margin-bottom:20px
 }
 
 .buttons{
 display:flex;
-justify-content:center;
 gap:9px;
 flex-wrap:wrap
 }
@@ -147,6 +187,21 @@ color:#155eef;
 border:1px solid #155eef
 }
 
+.hero-image{
+position:relative
+}
+
+.hero-image img{
+width:100%;
+max-width:500px;
+display:block;
+margin:auto;
+border-radius:20px;
+box-shadow:0 18px 45px #155eef20
+}
+
+/* SECTIONS */
+
 .section{
 max-width:1100px;
 margin:auto;
@@ -168,9 +223,9 @@ font-size:13px;
 color:#667085
 }
 
-.daily{
-background:#fff
-}
+/* DAILY */
+
+.daily{background:#fff}
 
 .daily-grid{
 display:grid;
@@ -197,18 +252,16 @@ font-weight:900;
 color:#155eef
 }
 
-.stat h3{
-font-size:14px
-}
+.stat h3{font-size:14px}
 
 .stat p{
 font-size:10px;
 color:#667085
 }
 
-.routine{
-background:#f0f5ff
-}
+/* ROUTINE */
+
+.routine{background:#f0f5ff}
 
 .cards{
 display:grid;
@@ -234,9 +287,9 @@ font-size:11px;
 color:#667085
 }
 
-.subject{
-background:#fff
-}
+/* SUBJECT */
+
+.subject{background:#fff}
 
 .subject-box{
 max-width:700px;
@@ -248,9 +301,7 @@ border:2px solid #155eef;
 border-radius:18px
 }
 
-.subject-icon{
-font-size:42px
-}
+.subject-icon{font-size:42px}
 
 .subject-box h3{
 font-size:21px;
@@ -280,14 +331,14 @@ font-weight:800;
 color:#475467
 }
 
+/* JOURNEY */
+
 .journey{
 background:#172554;
 color:#fff
 }
 
-.journey .title p{
-color:#cbd5e1
-}
+.journey .title p{color:#cbd5e1}
 
 .journey-grid{
 display:grid;
@@ -316,9 +367,7 @@ color:#667085;
 margin-bottom:8px
 }
 
-.journey-card ul{
-list-style:none
-}
+.journey-card ul{list-style:none}
 
 .journey-card li{
 font-size:11px;
@@ -326,9 +375,9 @@ padding:5px 0;
 border-bottom:1px solid #edf0f4
 }
 
-.premium{
-background:#f0f5ff
-}
+/* PREMIUM */
+
+.premium{background:#f0f5ff}
 
 .plan{
 max-width:520px;
@@ -381,6 +430,8 @@ padding:6px 0;
 border-bottom:1px solid #edf0f4
 }
 
+/* CTA */
+
 .cta{
 background:linear-gradient(135deg,#155eef,#172554);
 color:#fff;
@@ -403,6 +454,8 @@ margin-bottom:17px
 background:#fff;
 color:#155eef
 }
+
+/* FOOTER */
 
 footer{
 background:#0b1120;
@@ -434,52 +487,32 @@ font-size:10px;
 color:#c7cfdb
 }
 
-/* INSTALL MESSAGE */
+/* MOBILE */
 
-.install-message{
-display:none;
-position:fixed;
-top:72px;
-right:12px;
-z-index:2000;
-width:290px;
-background:#fff;
-border:1px solid #dbe3ef;
-border-radius:13px;
-padding:15px;
-box-shadow:0 12px 35px #0002
+@media(max-width:800px){
+
+.hero-inner{
+grid-template-columns:1fr;
+text-align:center
 }
 
-.install-message.show{
-display:block
+.hero-content{text-align:center}
+
+.hero p{
+margin-left:auto;
+margin-right:auto
 }
 
-.install-message strong{
-display:block;
-font-size:13px;
-margin-bottom:4px
+.buttons{
+justify-content:center
 }
 
-.install-message p{
-font-size:11px;
-color:#667085;
-margin-bottom:9px
+.hero-image{
+order:2
 }
 
-.install-message button{
-border:0;
-background:#155eef;
-color:#fff;
-border-radius:7px;
-padding:7px 12px;
-font-size:10px;
-font-weight:800
-}
-
-@media(max-width:750px){
-
-.hero h1{
-font-size:34px
+.hero-image img{
+max-width:550px
 }
 
 .daily-grid,
@@ -499,9 +532,7 @@ grid-template-columns:1fr
 padding:9px 10px
 }
 
-.logo{
-font-size:16px
-}
+.logo{font-size:16px}
 
 .nav-btn,
 .install-btn{
@@ -511,7 +542,7 @@ font-size:9px
 }
 
 .hero{
-padding:42px 13px 50px
+padding:40px 13px 48px
 }
 
 .hero h1{
@@ -528,6 +559,10 @@ padding:43px 13px
 
 .title h2{
 font-size:24px
+}
+
+.hero-image img{
+border-radius:15px
 }
 
 .install-message{
@@ -599,6 +634,8 @@ Close
 
 <div class="hero-inner">
 
+<div class="hero-content">
+
 <div class="label">
 🧬 G.C.E. A/L BIOLOGY
 </div>
@@ -622,6 +659,17 @@ Start Free Practice →
 <a href="#premium" class="btn secondary">
 View Premium
 </a>
+
+</div>
+
+</div>
+
+
+<div class="hero-image">
+
+<img
+src="https://assetsal.createlk.com/file_00000000697c82089443a75ed817e2a6.png"
+alt="CreateLK AL Biology learning">
 
 </div>
 
@@ -654,9 +702,7 @@ Small daily practice. Stronger preparation.
 
 <div class="icon">🎯</div>
 
-<div class="number">
-10
-</div>
+<div class="number">10</div>
 
 <h3>
 Questions / Day
@@ -673,9 +719,7 @@ Build a daily practice habit.
 
 <div class="icon">🧬</div>
 
-<div class="number">
-500+
-</div>
+<div class="number">500+</div>
 
 <h3>
 Biology MCQs
@@ -692,9 +736,7 @@ Practise across Biology topics.
 
 <div class="icon">📈</div>
 
-<div class="number">
-2 Years
-</div>
+<div class="number">2 Years</div>
 
 <h3>
 Long-Term Preparation
@@ -735,13 +777,9 @@ A simple habit for better Biology preparation.
 
 <div class="card">
 
-<div class="icon">
-🎯
-</div>
+<div class="icon">🎯</div>
 
-<h3>
-Practise
-</h3>
+<h3>Practise</h3>
 
 <p>
 Answer 10 Biology questions every day.
@@ -752,13 +790,9 @@ Answer 10 Biology questions every day.
 
 <div class="card">
 
-<div class="icon">
-🧠
-</div>
+<div class="icon">🧠</div>
 
-<h3>
-Learn
-</h3>
+<h3>Learn</h3>
 
 <p>
 Review answers and understand your mistakes.
@@ -769,13 +803,9 @@ Review answers and understand your mistakes.
 
 <div class="card">
 
-<div class="icon">
-📈
-</div>
+<div class="icon">📈</div>
 
-<h3>
-Improve
-</h3>
+<h3>Improve</h3>
 
 <p>
 Track your progress and build confidence.
@@ -825,25 +855,11 @@ and gradually prepare for your examination.
 
 <div class="tags">
 
-<span class="tag">
-Topic Practice
-</span>
-
-<span class="tag">
-Easy
-</span>
-
-<span class="tag">
-Medium
-</span>
-
-<span class="tag">
-Hard
-</span>
-
-<span class="tag">
-Exam Practice
-</span>
+<span class="tag">Topic Practice</span>
+<span class="tag">Easy</span>
+<span class="tag">Medium</span>
+<span class="tag">Hard</span>
+<span class="tag">Exam Practice</span>
 
 </div>
 
@@ -890,21 +906,10 @@ Practise topics regularly, review mistakes and strengthen areas where you need m
 
 <ul>
 
-<li>
-✓ Daily Biology practice
-</li>
-
-<li>
-✓ Topic-based learning
-</li>
-
-<li>
-✓ Review mistakes
-</li>
-
-<li>
-✓ Identify weak areas
-</li>
+<li>✓ Daily Biology practice</li>
+<li>✓ Topic-based learning</li>
+<li>✓ Review mistakes</li>
+<li>✓ Identify weak areas</li>
 
 </ul>
 
@@ -923,21 +928,10 @@ Move toward mixed topics, harder questions, revision and exam-focused practice.
 
 <ul>
 
-<li>
-✓ Mixed-topic practice
-</li>
-
-<li>
-✓ Higher difficulty
-</li>
-
-<li>
-✓ Regular revision
-</li>
-
-<li>
-✓ Exam-focused preparation
-</li>
+<li>✓ Mixed-topic practice</li>
+<li>✓ Higher difficulty</li>
+<li>✓ Regular revision</li>
+<li>✓ Exam-focused preparation</li>
 
 </ul>
 
@@ -985,29 +979,12 @@ LKR 1,500
 
 <ul>
 
-<li>
-✓ 500+ A/L Biology MCQs
-</li>
-
-<li>
-✓ AI-powered Biology practice
-</li>
-
-<li>
-✓ Topic-based questions
-</li>
-
-<li>
-✓ Easy, Medium & Hard levels
-</li>
-
-<li>
-✓ Progress tracking
-</li>
-
-<li>
-✓ Premium learning resources
-</li>
+<li>✓ 500+ A/L Biology MCQs</li>
+<li>✓ AI-powered Biology practice</li>
+<li>✓ Topic-based questions</li>
+<li>✓ Easy, Medium & Hard levels</li>
+<li>✓ Progress tracking</li>
+<li>✓ Premium learning resources</li>
 
 </ul>
 
@@ -1056,29 +1033,12 @@ A/L Biology MCQ & Exam Practice
 
 <div class="links">
 
-<a href="about.html">
-About
-</a>
-
-<a href="contact.html">
-Contact
-</a>
-
-<a href="terms.html">
-Terms
-</a>
-
-<a href="privacy.html">
-Privacy
-</a>
-
-<a href="refund.html">
-Refund
-</a>
-
-<a href="cancellation.html">
-Cancellation
-</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
+<a href="refund.html">Refund</a>
+<a href="cancellation.html">Cancellation</a>
 
 </div>
 
@@ -1137,12 +1097,7 @@ message.classList.remove("show");
 }
 
 
-/*
- IMPORTANT:
- Do not remove or hide the Install button.
- The browser decides whether the native
- beforeinstallprompt event is available.
-*/
+/* Native installation event */
 
 addEventListener("beforeinstallprompt", e => {
 
@@ -1152,6 +1107,8 @@ deferredPrompt = e;
 
 });
 
+
+/* Install button */
 
 installBtn.onclick = async () => {
 
@@ -1226,7 +1183,7 @@ return;
 }
 
 
-/* Browser does not provide direct install prompt */
+/* Browser fallback */
 
 showInstall(
 "Install CreateLK AL",
@@ -1245,7 +1202,7 @@ message.classList.remove("show");
 };
 
 
-/* Installation completed */
+/* Installed */
 
 addEventListener("appinstalled", () => {
 
