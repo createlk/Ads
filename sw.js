@@ -1,4 +1,4 @@
-const CACHE_NAME = "createlk-al-v2";
+const CACHE_NAME = "createlk-al-v1";
 
 const APP_SHELL = [
   "/",
@@ -50,8 +50,9 @@ self.addEventListener("fetch", event => {
         return response;
 
       })
-      .catch(() =>
-        caches.match(event.request)
+      .catch(() => {
+
+        return caches.match(event.request)
           .then(cached => {
 
             if (cached) return cached;
@@ -60,7 +61,9 @@ self.addEventListener("fetch", event => {
               return caches.match("/index.html");
             }
 
-          })
-      )
+          });
+
+      })
   );
+
 });
